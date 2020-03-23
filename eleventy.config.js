@@ -60,7 +60,7 @@ module.exports = eleventyConfig => {
         dir: {
             input: 'site',
             output: 'dist',
-            includes: '_includes',
+            includes: 'includes',
             data: 'globals'
         }
     }
