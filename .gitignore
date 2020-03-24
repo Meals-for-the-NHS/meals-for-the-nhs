@@ -5,6 +5,5 @@ package-lock.json
 
 # Ignore generated data
 data/
-site/hospitals/
 
 !*/readme.md
