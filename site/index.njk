@@ -7,29 +7,32 @@ title: Meals for the NHS
 ---
 
 <main id="main" class="main flex flex-1 h-full flex-col focus:outline-none" tabindex="-1">
-    <div class="container md:w-4/5 lg:w-3/4 xl:w-1/2 mx-auto text-center py-6 md:py-16 lg:py-24">
+    <div class="container md:w-4/5 lg:w-3/4 xl:w-1/2 mx-auto text-center px-4 py-6 md:py-16 lg:py-24">
         <h1 class="text-3xl md:text-5xl">Provide a daily meal to NHS hospital staff, powered by local restaurants.</h1>
         <p class="text-xl md:text-2xl text-gray-700 pb-4">All while safely social distancing.</p>
         <p class="text-xl text-gray-600 pb-2">We know times are hard for everyone at the moment. But our front-line NHS staff are risking their lives fighting COVID-19, and often don't have the time or ability to find a square meal to last them until the end of their shift.</p>
         <div class="py-8 flex flex-col md:flex-row mx-auto md:justify-center">
             <div class="md:px-2">
-                <a class="dbox-donation-button bg-blue-800 hover:bg-blue-900 transition-all ease-in-out duration-300 py-4 px-6 rounded cursor-pointer text-white text-2xl" href="https://donorbox.org/meals-for-the-nhs-frontline-heroes">Make a secure donation</a>
+                <a class="dbox-donation-button bg-blue-800 hover:bg-blue-900 transition-all ease-in-out duration-300 py-4 px-6 rounded cursor-pointer text-white text-2xl" href="#donationform">Make a secure donation</a>
             </div>
         </div>
-        <div class="py-8 flex flex-col md:flex-row mx-auto md:justify-center">
-            <div class="md:px-2">
+        <div class="pb-8 flex flex-col md:flex-row mx-auto md:justify-center">
+            <div class="py-2 md:px-2 flex justify-center">
                 <a class="bg-gray-200 hover:bg-gray-300 transition-all ease-in-out duration-300 py-4 px-6 rounded cursor-pointer text-blue-800 text-2xl" href="/restaurants">Become a supplier</a>
             </div>
-            <div class="md:px-2">
-                <a href="/hospitals" class="bg-gray-200 hover:bg-gray-300 transition-all ease-in-out duration-300 py-4 px-6 rounded cursor-pointer text-blue-800 text-2xl">We're a hospital in need</a>
+            <div class="py-2 md:px-2 flex justify-center">
+                <a href="/hospitals" class="bg-gray-200 hover:bg-gray-300 transition-all ease-in-out duration-300 py-4 px-6 rounded cursor-pointer text-blue-800 text-2xl">Request a delivery</a>
             </div>
         </div>
     </div>
-    <div class="container md:w-4/5 lg:w-3/4 mx-auto text-center py-6 md:pb-16 lg:pb-24 mx-auto flex justify-center">
-        <iframe class="" allowpaymentrequest="" frameborder="0" height="900px" name="donorbox" scrolling="no" seamless="seamless" src="https://donorbox.org/embed/jb-test?default_interval=m&amount=30&hide_donation_meter=true" style="max-width: 425px; min-width: 310px; max-height:none!important" width="100%"></iframe>
+    <div id="donationform" class="container px-2 md:w-4/5 lg:w-3/4 mx-auto text-center py-6 md:pb-16 lg:pb-24 mx-auto flex justify-center">
+        <iframe allowpaymentrequest="" frameborder="0" height="900px" name="donorbox" scrolling="no" seamless="seamless" src="https://donorbox.org/embed/meals-for-the-nhs-frontline-heroes?default_interval=m&amount=30" style="max-width: 425px; min-width: 310px; max-height:none!important" width="100%"></iframe>
+    </div>
+    <div class="bg-blue-100">
+        <div class="container md:w-4/5 lg:w-3/4 xl:w-1/2 mx-auto text-center px-4 py-6 md:py-16">
+            <p class="text-gray-700">Contact us at <a class="underline text-blue-800 hover:text-blue-900 transition-all duration-300 ease-in-out" href="mailto:team@mealsforthenhs.com">team@mealsforthenhs.com</a></p>
+        </div>
     </div>
 </main>
 <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
-<script type="text/javascript" defer src="https://donorbox.org/install-popup-button.js"></script>
-
 

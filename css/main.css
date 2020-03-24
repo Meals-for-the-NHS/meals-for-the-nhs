@@ -617,6 +617,10 @@ video {
   padding-right: 1.5rem;
 }
 
+*, html {
+  scroll-behavior: smooth;
+}
+
 a {
   color: #2a4365;
   text-decoration: none;
