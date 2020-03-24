@@ -3,7 +3,7 @@
 import json, os
 import requests
 
-hospitals_folder = 'site/hospitals/'
+hospitals_folder = 'site/hospital/'
 
 for filename in os.listdir(hospitals_folder):
     file_path = os.path.join(hospitals_folder, filename)
