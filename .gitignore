@@ -4,5 +4,5 @@ dist/
 package-lock.json
 
 # Ignore generated data
-data/*
-site/hospitals/*
+data/
+site/hospitals/
