@@ -16,16 +16,14 @@ with open("data/hospitals.json") as hospitals_json:
 for record in data["records"]:
     id = record["id"]
     name = record["fields"]["Hospital Name"]
-    area = record["fields"]["Area"]
 
     front_matter = """---
     layout: hospital
     hospital_id: {id}
     tags: hospital
     name: {name}
-    area: {area}
     ---
-    """.format(id=id, name=name, area=area)
+    """.format(id=id, name=name)
 
     front_matter = "\n".join([s.strip() for s in front_matter.splitlines()])
 
