@@ -11,10 +11,14 @@
 <meta name="twitter:image:src" content="{{ site.url }}{{ site.images.twitter }}">
 
 {# Open Graph #}
-<meta name="og:title" content="{% if meta_title %}{{ meta_title }}{% else %}{{ title }}{% endif %} | {{ site.name }}">
-<meta name="og:description" content="{% if meta_description %}{{ meta_description }}{% else %}{{ excerpt }}{% endif %}">
-<meta name="og:image" content="{{ site.url }}{{ site.images.og }}">
-<meta name="og:url" content="{{ site.url }}{{ page.url }}">
-<meta name="og:site_name" content="{{ site.name }}">
-<meta name="og:locale" content="en_GB">
-<meta name="og:type" content="website">
+<meta property="og:title" content="{% if meta_title %}{{ meta_title }}{% else %}{{ title }}{% endif %} | {{ site.name }}">
+<meta property="og:description" content="{% if meta_description %}{{ meta_description }}{% else %}{{ excerpt }}{% endif %}">
+<meta property="og:image" content="{{ site.url }}{{ site.images.og }}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:locale" content="en_GB">
+<meta property="og:type" content="website">
