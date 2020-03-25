@@ -622,7 +622,7 @@ video {
 }
 
 a {
-  color: #2a4365;
+  color: #2c5282;
   text-decoration: none;
   transition-property: all;
   transition-duration: 300ms;
@@ -631,11 +631,11 @@ a {
 
 a:not([class]) {
   border-bottom-width: 2px;
-  border-color: #eb5286;
+  border-color: #90cdf4;
 }
 
 a:not([class]):hover {
-  color: #ed64a6;
+  color: #2a4365;
 }
 
 h1, h2, h3 {

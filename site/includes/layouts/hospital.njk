@@ -3,7 +3,8 @@ layout: default
 ---
 <main id="main" class="main flex flex-1 h-full flex-col focus:outline-none" tabindex="-1">
     <div class="container md:w-4/5 lg:w-3/4 xl:w-3/5 mx-auto text-center px-4 py-6 md:py-16 lg:py-24">
-        <h1 class="text-3xl md:text-5xl">{{ name }}</h1>
+        <p class="pb-4 md:pb-8"><a href="/">← Hospitals</a></p>
+        <h1 class="text-3xl md:text-5xl mb-8">{{ name }}</h1>
         <p class="text-xl pb-8">Hospitals including {{ name }} are working day and night to keep us safe from COVID-19. Anything you can donate will keep staff well fed and focused as they do this important work.</p>
         <div class="p-4 rounded bg-yellow-200 text-yellow-800">
             <p><b>Please note: </b>Your donation will not necessarily go towards {{ name }}. We're bringing Hospitals on as fast as we can but cannot direct donations to individual hospitals right now.</p>
@@ -11,3 +12,5 @@ layout: default
     </div>
 </main>
 {% include "components/donation_form.njk" %}
+{% include "components/tweets.njk" %}
+{% include "components/team.njk" %}
