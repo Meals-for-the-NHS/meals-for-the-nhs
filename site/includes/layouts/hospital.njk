@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<main id="main" class="main flex flex-1 h-full flex-col focus:outline-none" tabindex="-1">
+    <div class="container md:w-4/5 lg:w-3/4 xl:w-3/5 mx-auto text-center px-4 py-6 md:py-16 lg:py-24">
+        <p class="pb-4 md:pb-8"><a href="/">← Hospitals</a></p>
+        <h1 class="text-3xl md:text-5xl pb-2 md:mb-8">Support {{ name }} and others by buying hot meals</h1>
+        <p class="text-xl lg:text-2xl md:pb-8">NHS staff are working day and night to keep us safe from COVID-19. Anything you can donate will help to keep them well fed and focused as they do this important work.</p>
+        <div class="py-8 flex flex-col md:flex-row mx-auto md:justify-center">
+            <div class="md:px-2">
+                <a class="dbox-donation-button bg-blue-800 hover:bg-blue-900 transition-all ease-in-out duration-300 py-4 px-6 rounded cursor-pointer text-white text-xl md:text-2xl" href="#donationform">Make a secure donation</a>
+            </div>
+        </div>
+        <div class="pb-8 flex flex-col md:flex-row mx-auto md:justify-center">
+            <div class="py-2 md:px-2 flex justify-center">
+                <a href="/hospitals" class="underline">I work at {{ name }}</a>
+            </div>
+        </div>
+        <div class="p-4 rounded bg-yellow-200 text-yellow-800">
+            <p><b>Please note: </b>Your donation will not necessarily go towards {{ name }}. We're bringing Hospitals on as fast as we can but cannot direct donations to individual hospitals right now.</p>
+        </div>
+    </div>
+</main>
+{% include "components/donation_form.njk" %}
+{% include "components/tweets.njk" %}
+{% include "components/team.njk" %}

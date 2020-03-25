@@ -2,14 +2,14 @@
 //==========  Links ==========//
 
 a {
-    @apply text-blue-900 no-underline transition-all duration-300 ease-out;
+    @apply text-blue-800 no-underline transition-all duration-300 ease-out;
 
     &:not([class]) {
         border-bottom-width: 2px;
-        border-color: #eb5286;
+        @apply border-blue-300;
 
         &:hover {
-            @apply text-pink-500;
+            @apply text-blue-900;
         }
     }
 }
