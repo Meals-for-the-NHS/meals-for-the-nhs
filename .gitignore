@@ -8,3 +8,4 @@ data/
 site/hospitals/
 
 !*/readme.md
+.secrets
