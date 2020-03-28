@@ -1145,6 +1145,10 @@ h1, h2, h3 {
   transition-delay: 6.75s;
 }
 
+.icon-white rect, .icon-white path {
+  background-color: white;
+}
+
 .form .row {
   margin-bottom: 1.5rem;
 }

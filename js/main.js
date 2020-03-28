@@ -274,8 +274,8 @@ var $$ = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/aj/Dev/meals-for-the-nhs/resources/js/main.js */"./resources/js/main.js");
-module.exports = __webpack_require__(/*! /Users/aj/Dev/meals-for-the-nhs/resources/sass/main.scss */"./resources/sass/main.scss");
+__webpack_require__(/*! /Users/jonathanburch/Documents/GitHub/meals-for-the-nhs/resources/js/main.js */"./resources/js/main.js");
+module.exports = __webpack_require__(/*! /Users/jonathanburch/Documents/GitHub/meals-for-the-nhs/resources/sass/main.scss */"./resources/sass/main.scss");
 
 
 /***/ })
