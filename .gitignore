@@ -8,5 +8,4 @@ dist/
 site/hospital/*
 
 !*/readme.md
-!*/*/readme.md
 .secrets
