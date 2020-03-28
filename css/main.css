@@ -1198,6 +1198,10 @@ h1, h2, h3 {
   height: calc(100vh - 4rem);
 }
 
+.googleform iframe {
+  width: 100%;
+}
+
 .sr-only{
   position: absolute;
   width: 1px;
