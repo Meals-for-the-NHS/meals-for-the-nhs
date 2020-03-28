@@ -45,6 +45,7 @@ module.exports = eleventyConfig => {
     eleventyConfig.addLayoutAlias('default', 'layouts/default.njk')
     eleventyConfig.addLayoutAlias('post', 'layouts/post.njk')
     eleventyConfig.addLayoutAlias('form', 'layouts/form.njk')
+    eleventyConfig.addLayoutAlias('googleform', 'layouts/googleform.njk')
     eleventyConfig.addLayoutAlias('hospital', 'layouts/hospital.njk')
 
     // Include our static assets
