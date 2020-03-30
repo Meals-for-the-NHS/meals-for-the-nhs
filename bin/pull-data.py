@@ -15,8 +15,7 @@ if not APP_ID or not APP_KEY:
     exit(-1)
 
 TABLE_TO_FILENAME = {
-        'Hospitals': 'hospitals.json',
-        'Orders': 'orders.json'
+        'Hospitals': 'hospitals.json'
 }
 
 OUTPUT_DIR = 'data'
