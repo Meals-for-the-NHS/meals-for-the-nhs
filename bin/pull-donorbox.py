@@ -37,7 +37,6 @@ now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
 def remove_file_if_it_exists(path):
     if os.path.isfile(path):
         os.unlink(path)
-    print("path removed")
 
 
 def save(data_to_save, path):
