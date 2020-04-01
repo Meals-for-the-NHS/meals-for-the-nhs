@@ -41,7 +41,7 @@ def remove_file_if_it_exists(path):
 
 def save(data_to_save, path):
     remove_file_if_it_exists(path)
-    with open(path, 'w') as fp:
+    with open(path, 'w+') as fp:
         json.dump(data_to_save, fp, ensure_ascii=False)
 
 
