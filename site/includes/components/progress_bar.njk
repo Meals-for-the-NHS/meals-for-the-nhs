@@ -4,20 +4,16 @@
     {% set total_sponsorship = total_sponsorship + sponsor.fields["Amount for Website"] %}
     {% set total_sponsors = total_sponsors + 1 %}
 {% endfor -%}
-{% set donorbox_total = data.donorbox.total | float %}
-{% set donorbox_donors = data.donorbox.data.donations_count | float %}
-{% set total_sponsorship = total_sponsorship + donorbox_total %}
-{% set total_donors_and_sponsors = total_sponsors + donorbox_donors | float %}
 
 <div class="w-full md:w-2/3 mx-auto p-4">
-    <progress value="{{ total_sponsorship }}" max="{{ site.fundraising_goal }}"></progress>
+    <progress class="sponsorship" value="{{ total_sponsorship }}" max="{{ site.fundraising_goal }}"></progress>
     <div class="flex justify-between">
         <div class="">
-            <p class="md:text-xl text-blue-800 font-bold">£{{ total_sponsorship | thousands }}</p>
+            <p class="raised md:text-xl text-blue-800 font-bold"></p>
             <p class="text-sm text-gray-500">Raised</p>
         </div>
         <div class="">
-            <p class="md:text-xl text-blue-800 font-bold">{{ total_donors_and_sponsors | thousands }}</p>
+            <p class="donors md:text-xl text-blue-800 font-bold"></p>
             <p class="text-sm text-gray-500">Donations</p>
         </div>
         <div class="">
@@ -26,3 +22,25 @@
         </div>
     </div>
 </div>
+
+<script>
+  (function() {
+    const email = '{{ helpers.env.DONORBOX_EMAIL }}'
+    const key = '{{ helpers.env.DONORBOX_API_KEY }}'
+    let headers = new Headers();
+    headers.append('Authorization', 'Basic ' + btoa(`${email}:${key}`))
+    url = `https://donorbox.org/api/v1/campaigns`
+    const thousands = (s) => s.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    fetch(url, { headers })
+      .then(r => r.json())
+      .then((json) => {
+        const [_, campaign] = json
+        let { total_raised, donations_count } = campaign
+        total_raised += {{ total_sponsorship }}
+        donations_count += {{ total_sponsors }}
+        document.querySelector('progress.sponsorship').setAttribute('value', total_raised)
+        document.querySelector('p.raised').innerHTML = `£ ${thousands(total_raised)}`
+        document.querySelector('p.donors').innerHTML = thousands(donations_count)
+      })
+  })()
+</script>
