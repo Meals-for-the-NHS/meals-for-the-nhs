@@ -30,7 +30,7 @@
     let headers = new Headers();
     headers.append('Authorization', 'Basic ' + btoa(`${email}:${key}`))
     url = `https://donorbox.org/api/v1/campaigns`
-    const thousands = (s) => s.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    const thousands = (s) => s.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",").split('.')[0]
     fetch(url, { headers })
       .then(r => r.json())
       .then((json) => {
