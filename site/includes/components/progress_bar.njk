@@ -1,0 +1,25 @@
+{% set total_sponsorship = 0 %}
+{% for sponsor in data.sponsors.records %}
+    {% set total_sponsorship = total_sponsorship + sponsor.fields["Amount for Website"] %}
+{% endfor -%}
+{% set donorbox_total = data.donorbox.total | float %}
+{% set donorbox_sponsors = data.donorbox.data.donations_count | float %}
+{% set total_sponsorship = total_sponsorship + donorbox_total %}
+
+<div class="w-full md:w-2/3 mx-auto p-4">
+    <progress value="{{ total_sponsorship }}" max="{{ site.fundraising_goal }}"></progress>
+    <div class="flex justify-between">
+        <div class="">
+            <p class="md:text-xl text-blue-800 font-bold">£{{ total_sponsorship | thousands }}</p>
+            <p class="text-sm text-gray-500">Raised</p>
+        </div>
+        <div class="">
+            <p class="md:text-xl text-blue-800 font-bold">{{ donorbox_sponsors | thousands }}</p>
+            <p class="text-sm text-gray-500">Sponsors</p>
+        </div>
+        <div class="">
+            <p class="md:text-xl text-blue-800 font-bold">£{{ site.fundraising_goal | thousands }}</p>
+            <p class="text-sm text-gray-500">Goal</p>
+        </div>
+    </div>
+</div>

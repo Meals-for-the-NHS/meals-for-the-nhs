@@ -29,7 +29,7 @@ TABLE_FIELDS = {
         'Sponsor a Hospital': ['Which hospital?', 'Amount for Website']
 }
 
-OUTPUT_DIR = 'data'
+OUTPUT_DIR = 'site/globals/data'
 
 
 # Trying to mimic the time format from the bash implementation

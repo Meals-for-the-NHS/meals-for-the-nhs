@@ -26,7 +26,7 @@ campaign = next(campaign for campaign in raw_data if campaign["id"] == 155698)
 print(campaign)
 
 FILENAME = 'donorbox.json'
-OUTPUT_DIR = 'data'
+OUTPUT_DIR = 'site/globals/data'
 
 path = OUTPUT_DIR + '/' + FILENAME
 
