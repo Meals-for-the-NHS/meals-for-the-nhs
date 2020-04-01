@@ -18,7 +18,12 @@ TABLE_TO_FILENAME = {
         'Hospitals': 'hospitals.json'
 }
 
+TABLE_VIEW = {
+        'Hospitals': 'Receiving Orders'
+}
+
 OUTPUT_DIR = 'data'
+
 
 # Trying to mimic the time format from the bash implementation
 now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
@@ -26,9 +31,15 @@ now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
 
 def get_records(table):
     airtable = Airtable(APP_ID, table, api_key=APP_KEY)
-    return airtable.get_all()
+    for view_table, view in TABLE_VIEW.items():
+        if table == view_table:
+            return airtable.get_all(view=view)
+        else:
+            return airtable.get_all()
 
 def remove_file_if_it_exists(path):
+    print(path)
+
     if os.path.isfile(path):
         os.unlink(path)
 
