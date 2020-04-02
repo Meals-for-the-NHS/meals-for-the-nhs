@@ -14,18 +14,19 @@
         "og": "/images/meta/og.png"
     },
     "social_links": {
-        "twitter": ""
+        "twitter": "mealsforthenhs"
     },
     "address": {
-        "street": "123 Fake Street",
-        "street_2": "Fake Road",
+        "street": "Avar Suites, Building 3 North London Business Park",
+        "street_2": "Oakleigh Road South",
         "city": "London",
-        "postcode": "LN1 234",
+        "postcode": "N11 1GN",
         "country": "GB"
     },
     "contact": {
-        "phone": "123 456 789",
-        "mobile": "(+44) 1234 5678",
-        "email": "hello@maxpower.com"
-    }
+        "phone": "",
+        "mobile": "",
+        "email": "team@mealsforthenhs.com"
+    },
+    "fundraising_goal": 1000000
 }
