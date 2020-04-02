@@ -3,32 +3,28 @@
 // import '@modules/mobile-nav'
 import '@modules/lazyload'
 
-const thousands = s => s.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",").split('.')[0]
+const thousands = n => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
-function grabDonorboxAmounts() {
-  try {
-    fetch('/api/pull-donorbox')
-      .then(r => r.json())
-      .then((json) => {
-        const { donorboxRaised, donorboxCount } = json
+firebase.initializeApp({
+  apiKey: "AIzaSyA0-F3QhkHLJNGnObhZESERdH_p0F58WBo",
+  authDomain: "sap-meals-nhs.firebaseapp.com",
+  databaseURL: "https://sap-meals-nhs.firebaseio.com",
+  projectId: "sap-meals-nhs",
+  storageBucket: "sap-meals-nhs.appspot.com",
+  messagingSenderId: "61596947586",
+  appId: "1:61596947586:web:ad656c22b3c1ab1284909b",
+  measurementId: "G-CFDDZRSMVN"
+})
 
-        document.querySelectorAll('div.progress-bar').forEach((div) => {
-          const raised = div.querySelector('p.raised')
-          const totalAmount = parseFloat(raised.dataset.amount) + donorboxRaised
-          const donors = div.querySelector('p.donors')
-          const totalDonors = parseFloat(donors.dataset.amount) + donorboxCount
+const db = firebase.firestore()
 
-          div.querySelector('progress').setAttribute('value', totalAmount)
-          raised.innerHTML = `£${thousands(totalAmount)}`
-          donors.innerHTML = thousands(totalDonors)
-        })
-
-        setTimeout(grabDonorboxAmounts, 10000)
-      })
-  } catch (_) {
-    // if the fetch failed, for any reason don't worry about it, just try again later
-    setTimeout(grabDonorboxAmounts, 10000)
-  }
-}
-
-grabDonorboxAmounts()
+db.collection('main').doc('all')
+  .onSnapshot((doc) => {
+    const { amount, donors } = doc.data()
+    console.log(amount, donors, thousands(donors))
+    document.querySelectorAll('div.progress-bar').forEach((div) => {
+      div.querySelector('progress').setAttribute('value', amount)
+      div.querySelector('p.raised').innerHTML = `£${thousands(amount)}`
+      div.querySelector('p.donors').innerHTML = thousands(donors)
+    })
+  })
