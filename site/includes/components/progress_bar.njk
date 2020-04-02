@@ -4,16 +4,26 @@
     {% set total_sponsorship = total_sponsorship + sponsor.fields["Amount for Website"] %}
     {% set total_sponsors = total_sponsors + 1 %}
 {% endfor -%}
+{% set donorbox_total = data.donorbox.total | float %}
+{% set donorbox_donors = data.donorbox.data.donations_count | float %}
+{% set buildtime_total_sponsorship = total_sponsorship + donorbox_total %}
+{% set buildtime_total_donors_and_sponsors = total_sponsors + donorbox_donors | float %}
 
 <div class="progress-bar w-full md:w-2/3 mx-auto p-4">
-    <progress value="{{ total_sponsorship }}" max="{{ site.fundraising_goal }}"></progress>
+    <progress value="{{ buildtime_total_sponsorship }}" max="{{ site.fundraising_goal }}"></progress>
     <div class="flex justify-between">
         <div class="">
-            <p class="raised md:text-xl text-blue-800 font-bold" data-amount="{{ total_sponsorship }}"></p>
+            <p class="raised md:text-xl text-blue-800 font-bold"
+			   data-amount="{{ total_sponsorship }}">
+			  £{{ buildtime_total_sponsorship | thousands }}
+			</p>
             <p class="text-sm text-gray-500">Raised</p>
         </div>
         <div class="">
-            <p class="donors md:text-xl text-blue-800 font-bold" data-amount="{{ total_sponsors }}"></p>
+            <p class="donors md:text-xl text-blue-800 font-bold"
+			   data-amount="{{ total_sponsors }}">
+			  {{ buildtime_total_donors_and_sponsors | thousands }}  
+			</p>
             <p class="text-sm text-gray-500">Donations</p>
         </div>
         <div class="">
