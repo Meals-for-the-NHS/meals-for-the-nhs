@@ -1,7 +1,13 @@
 [build]
   command = "make build"
   publish = "dist"
+  functions = "functions"
 
 [template.environment]
   APP_KEY = "Change me for your Airtable API Key"
   APP_ID = "Change me for your Airtable APP ID"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200

@@ -1,20 +1,27 @@
-// https://functions-playground.netlify.com/
+/* eslint-disable */
+const fetch = require("node-fetch");
+exports.handler = async function(event, context) {
+  try {
+    const response = await fetch("https://icanhazdadjoke.com", {
+      headers: { Accept: "application/json" }
+    });
+    if (!response.ok) {
+      // NOT res.status >= 200 && res.status < 300
+      return { statusCode: response.status, body: response.statusText };
+    }
+    const data = await response.json();
 
-import fetch from "node-fetch";
-
-const API_ENDPOINT = "https://donorbox.org/api/v1/campaigns/";
-
-const { DONORBOX_EMAIL } = process.env;
-const { DONORBOX_API_KEY } = process.env;
-
-exports.handler = async (event, context) => {
-  return fetch(API_ENDPOINT, { headers: { "Accept": "application/json" } })
-    .then(response => response.json())
-    .then(data => ({
+    return {
       statusCode: 200,
-      body: data.joke
-    }))
-    .catch(error => ({ statusCode: 422, body: String(error) }));
+      body: JSON.stringify({ msg: data.joke })
+    };
+  } catch (err) {
+    console.log(err); // output to netlify function log
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ msg: err.message }) // Could be a custom message or object i.e. JSON.stringify(err)
+    };
+  }
 };
 
 
