@@ -6,14 +6,14 @@
 {% endfor -%}
 
 <div class="progress-bar w-full md:w-2/3 mx-auto p-4">
-    <progress class="sponsorship" value="{{ total_sponsorship }}" max="{{ site.fundraising_goal }}"></progress>
+    <progress value="{{ total_sponsorship }}" max="{{ site.fundraising_goal }}"></progress>
     <div class="flex justify-between">
         <div class="">
-            <p class="raised md:text-xl text-blue-800 font-bold"></p>
+            <p class="raised md:text-xl text-blue-800 font-bold" data-amount="{{ total_sponsorship }}"></p>
             <p class="text-sm text-gray-500">Raised</p>
         </div>
         <div class="">
-            <p class="donors md:text-xl text-blue-800 font-bold"></p>
+            <p class="donors md:text-xl text-blue-800 font-bold" data-amount="{{ total_sponsors }}"></p>
             <p class="text-sm text-gray-500">Donations</p>
         </div>
         <div class="">
