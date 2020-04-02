@@ -10,7 +10,7 @@ for filename in os.listdir(hospitals_folder):
     if os.path.isfile(file_path) and filename != 'readme.md':
         os.unlink(file_path)
 
-with open("data/hospitals.json") as hospitals_json:
+with open("site/globals/data/hospitals.json") as hospitals_json:
     data = json.load(hospitals_json)
 
 for record in data["records"]:
