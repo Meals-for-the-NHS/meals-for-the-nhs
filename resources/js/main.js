@@ -5,6 +5,41 @@ import '@modules/lazyload'
 
 const thousands = n => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
+let realRaised = null, realDonors = null
+let displayRaised = 0, displayDonors = 0
+let raisedStep = 10000, donorsStep = 10
+const intervalPeriod = 50
+const movingTime = 2000
+let interval = null
+
+function updater() {
+  interval = true
+  
+  displayRaised += raisedStep
+  displayDonors += donorsStep
+
+  displayRaised = Math.min(displayRaised, realRaised)
+  displayDonors = Math.min(displayDonors, realDonors)
+  
+  document.querySelectorAll('div.progress-bar').forEach((div) => {
+    div.querySelector('progress').setAttribute('value', displayRaised)
+    const raised = div.querySelector('div.raised')
+    raised.querySelector('.value').innerHTML = `£${thousands(displayRaised)}`
+    raised.querySelector('.text').innerHTML = 'Raised'
+    const donors = div.querySelector('div.donors')
+    donors.querySelector('.value').innerHTML = thousands(displayDonors)
+    donors.querySelector('.text').innerHTML = 'Donations'
+  })
+
+  if (!realRaised || displayRaised < realRaised) {
+    setTimeout(updater, intervalPeriod)
+  } else {
+    interval = null
+  }
+}
+
+updater()
+
 firebase.initializeApp({
   apiKey: "AIzaSyA0-F3QhkHLJNGnObhZESERdH_p0F58WBo",
   authDomain: "sap-meals-nhs.firebaseapp.com",
@@ -21,10 +56,14 @@ const db = firebase.firestore()
 db.collection('main').doc('all')
   .onSnapshot((doc) => {
     const { amount, donors } = doc.data()
-    console.log(amount, donors, thousands(donors))
-    document.querySelectorAll('div.progress-bar').forEach((div) => {
-      div.querySelector('progress').setAttribute('value', amount)
-      div.querySelector('p.raised').innerHTML = `£${thousands(amount)}`
-      div.querySelector('p.donors').innerHTML = thousands(donors)
-    })
+    realRaised = amount
+    realDonors = donors
+    const steps = movingTime / intervalPeriod
+    raisedStep = (realRaised - displayRaised) / steps
+    donorsStep = (realDonors - displayDonors) / steps
+    
+    if (!interval) {
+      updater()
+    }
   })
+
