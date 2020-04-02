@@ -3,8 +3,9 @@ node_modules/
 package-lock.json
 
 # Ignore generated data
-data/*
+site/globals/data/*
 dist/
 
 !*/readme.md
+!site/globals/data/readme.md
 .secrets

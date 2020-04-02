@@ -5,9 +5,13 @@ DIM := \033[2m
 RESET := \033[0m
 
 pp:
+	@echo "$(BOLD)Pulling data from donorbox...$(RESET)"
+	@python3 ./bin/pull-donorbox.py
+	@echo "Donorbox Data downloaded!"
+	@echo "--------------------------------------------------------"
 	@echo "$(BOLD)Pulling data from airtable...$(RESET)"
 	@python3 ./bin/pull-data.py
-	@echo "Meals Data downloaded!"
+	@echo "Airtable Data downloaded!"
 	@echo "--------------------------------------------------------"
 	@echo "$(BOLD)Creating hospitals...$(RESET)"
 	@python3 ./bin/create-hospitals.py
@@ -16,6 +20,8 @@ pp:
 	@echo "--------------------------------------------------------"
 
 # For open information
+
+test: pp
 
 build: pp
 	@echo "$(BOLD)Building for production$(RESET)"
