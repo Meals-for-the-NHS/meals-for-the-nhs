@@ -95,9 +95,10 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_lazyload__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @modules/lazyload */ "./resources/js/modules/lazyload/index.js");
+/* harmony import */ var _modules_mobile_nav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @modules/mobile-nav */ "./resources/js/modules/mobile-nav/index.js");
+/* harmony import */ var _modules_lazyload__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @modules/lazyload */ "./resources/js/modules/lazyload/index.js");
 // Import local modules
-// import '@modules/mobile-nav'
+
 
 
 /***/ }),
@@ -153,6 +154,35 @@ var Lazyload = function Lazyload() {
 }();
 
 /* harmony default export */ __webpack_exports__["default"] = (Lazyload);
+
+/***/ }),
+
+/***/ "./resources/js/modules/mobile-nav/index.js":
+/*!**************************************************!*\
+  !*** ./resources/js/modules/mobile-nav/index.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utilities_selectors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @utilities/selectors */ "./resources/js/utilities/selectors/index.js");
+
+
+var MobileNav = function MobileNav() {
+  _utilities_selectors__WEBPACK_IMPORTED_MODULE_0__["default"].mobileNavToggle.addEventListener('click', function () {
+    this.classList.toggle('menu-toggle-active');
+    _utilities_selectors__WEBPACK_IMPORTED_MODULE_0__["default"].mobileNav.classList.toggle('menu-visible'); // set aria-expanded attribute on menu toggle button
+
+    if (this.getAttribute('aria-expanded') === 'false') {
+      this.setAttribute('aria-expanded', 'true');
+    } else {
+      this.setAttribute('aria-expanded', 'false');
+    }
+  });
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (MobileNav);
 
 /***/ }),
 

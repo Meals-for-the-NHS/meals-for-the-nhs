@@ -2,9 +2,6 @@ const htmlmin = require("html-minifier")
 
 module.exports = eleventyConfig => {
 
-    // Add commas to numbers
-    eleventyConfig.addFilter("thousands", require("./filters/thousands.js"))
-
     // Add a readable date formatter filter to Nunjucks
     eleventyConfig.addFilter("dateDisplay", require("./filters/dates.js"))
 

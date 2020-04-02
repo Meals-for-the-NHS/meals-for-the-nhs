@@ -698,67 +698,6 @@ h1, h2, h3 {
   }
 }
 
-.icon-white rect, .icon-white path {
-  background-color: white;
-}
-
-.form .row {
-  margin-bottom: 1.5rem;
-}
-
-.form .row label {
-  display: block;
-  margin-bottom: 0.25rem;
-  color: #2d3748;
-}
-
-.form .row label:after {
-  font-size: 0.875rem;
-  color: #718096;
-}
-
-.form .row.required label:after {
-  content: "\A0(required)";
-}
-
-.form .row:not(.required) label:after {
-  content: "\A0(optional)";
-}
-
-.form .input,
-.form .textarea {
-  border-width: 1px;
-  border-color: #edf2f7;
-  border-radius: 0.25rem;
-  padding: 0.75rem;
-  width: 100%;
-  transition-property: all;
-  transition-duration: 300ms;
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-}
-
-.form .input:focus,
-.form .textarea:focus {
-  border-color: #ed64a6;
-  outline: 0;
-}
-
-.form .input {
-  height: 3rem;
-}
-
-.form .textarea {
-  height: 6rem;
-}
-
-.main iframe {
-  height: calc(100vh - 4rem);
-}
-
-.googleform iframe {
-  width: 100%;
-}
-
 .mobile-nav-toggle .mobile-nav-icon-line {
   height: 2px;
 }
@@ -1206,20 +1145,65 @@ h1, h2, h3 {
   transition-delay: 6.75s;
 }
 
-progress {
-  width: 100%;
+.icon-white rect, .icon-white path {
+  background-color: white;
 }
 
-progress[value]::-webkit-progress-bar {
-  background-color: #edf2f7;
-  border-radius: 0.5rem;
-  width: 100%;
-  overflow: hidden;
+.form .row {
+  margin-bottom: 1.5rem;
 }
 
-progress[value]::-webkit-progress-value {
-  background-color: #2c5282;
-  border-radius: 0.5rem;
+.form .row label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #2d3748;
+}
+
+.form .row label:after {
+  font-size: 0.875rem;
+  color: #718096;
+}
+
+.form .row.required label:after {
+  content: "\A0(required)";
+}
+
+.form .row:not(.required) label:after {
+  content: "\A0(optional)";
+}
+
+.form .input,
+.form .textarea {
+  border-width: 1px;
+  border-color: #edf2f7;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  width: 100%;
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form .input:focus,
+.form .textarea:focus {
+  border-color: #ed64a6;
+  outline: 0;
+}
+
+.form .input {
+  height: 3rem;
+}
+
+.form .textarea {
+  height: 6rem;
+}
+
+.main iframe {
+  height: calc(100vh - 4rem);
+}
+
+.googleform iframe {
+  width: 100%;
 }
 
 .sr-only{
