@@ -3,7 +3,7 @@
 // import '@modules/mobile-nav'
 import '@modules/lazyload'
 
-const thousands = n => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+const thousands = n => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 let realRaised = null, realDonors = null
 let displayRaised = 0, displayDonors = 0
@@ -41,29 +41,27 @@ function updater() {
 updater()
 
 firebase.initializeApp({
-  apiKey: "AIzaSyA0-F3QhkHLJNGnObhZESERdH_p0F58WBo",
-  authDomain: "sap-meals-nhs.firebaseapp.com",
-  databaseURL: "https://sap-meals-nhs.firebaseio.com",
-  projectId: "sap-meals-nhs",
-  storageBucket: "sap-meals-nhs.appspot.com",
-  messagingSenderId: "61596947586",
-  appId: "1:61596947586:web:ad656c22b3c1ab1284909b",
-  measurementId: "G-CFDDZRSMVN"
+  apiKey: 'AIzaSyCpaVRwkw239CGAmcOJWIyzelWdA1SBkXo',
+  databaseURL: 'https://meals4nhs.firebaseio.com',
+  projectId: 'meals4nhs',
+  appId: '1:820347843170:web:9c55207c4f680e275a173b'
 })
 
 const db = firebase.firestore()
 
-db.collection('main').doc('all')
-  .onSnapshot((doc) => {
-    const { amount, donors } = doc.data()
-    realRaised = amount
-    realDonors = donors
+db.collection('aggregates').doc('donations')
+  .get()
+  .then((docRef) => {
+    const donations = docRef.data()
+    const { donorbox, sponsors }  = docRef.data()
+    realRaised = donorbox.amount + sponsors.amount
+    realDonors = donorbox.donors + sponsors.donors
+
     const steps = movingTime / intervalPeriod
     raisedStep = (realRaised - displayRaised) / steps
     donorsStep = (realDonors - displayDonors) / steps
     
     if (!interval) {
       updater()
-    }
+    }    
   })
-
