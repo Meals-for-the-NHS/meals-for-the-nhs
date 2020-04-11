@@ -1,1 +1,316 @@
-!function(e){var t={};function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)n.d(r,o,function(t){return e[t]}.bind(null,o));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="/",n(n.s=0)}([function(e,t,n){n(1),e.exports=n(2)},function(e,t,n){"use strict";n.r(t);var r={body:document.querySelector("body"),wrapper:document.getElementById("wrapper"),header:document.getElementById("header"),nav:document.getElementById("nav"),hero:document.getElementById("hero"),main:document.getElementById("main"),containerCentre:document.getElementById("container-centre"),containerRight:document.getElementById("container-right"),preFooter:document.getElementById("pre-footer"),footer:document.getElementById("footer"),mobileNav:document.getElementById("mobile-nav"),mobileNavToggle:document.getElementById("mobile-nav-toggle")},o=(function(){var e=r.wrapper.querySelectorAll("[data-lazy]");if(e.length>0){var t=new IntersectionObserver((function(e,t){e.forEach((function(e){var n,r;e.isIntersecting&&(n=e.target,r=n.dataset.lazy,n.src=r,n.classList.add("loaded"),t.unobserve(e.target))}))}),{threshold:.5});e.forEach((function(e){t.observe(e)}))}}(),function(e){return Math.round(e).toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")}),a=null,u=null,i=0,c=0,l=1e4,d=10,s=null;function f(){s=!0,i+=l,c+=d,i=Math.min(i,a),c=Math.min(c,u),document.querySelectorAll("div.progress-bar").forEach((function(e){e.querySelector("progress").setAttribute("value",i);var t=e.querySelector("div.raised");t.querySelector(".value").innerHTML="£".concat(o(i)),t.querySelector(".text").innerHTML="Raised";var n=e.querySelector("div.donors");n.querySelector(".value").innerHTML=o(c),n.querySelector(".text").innerHTML="Donations"})),!a||i<a?setTimeout(f,50):s=null}f(),firebase.initializeApp({apiKey:"AIzaSyCpaVRwkw239CGAmcOJWIyzelWdA1SBkXo",databaseURL:"https://meals4nhs.firebaseio.com",projectId:"meals4nhs",appId:"1:820347843170:web:9c55207c4f680e275a173b"}),firebase.firestore().collection("aggregates").doc("donations").get().then((function(e){e.data();var t=e.data(),n=t.donorbox,r=t.sponsors;a=n.amount+r.amount,u=n.donors+r.donors;l=(a-i)/40,d=(u-c)/40,s||f()}))},function(e,t){}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./resources/js/main.js":
+/*!******************************!*\
+  !*** ./resources/js/main.js ***!
+  \******************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _modules_lazyload__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @modules/lazyload */ "./resources/js/modules/lazyload/index.js");
+// Import local modules
+// import '@modules/mobile-nav'
+
+
+var thousands = function thousands(n) {
+  return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
+
+var realRaised = null,
+    realDonors = null;
+var displayRaised = 0,
+    displayDonors = 0;
+var raisedStep = 10000,
+    donorsStep = 10;
+var intervalPeriod = 50;
+var movingTime = 2000;
+var interval = null;
+
+function updater() {
+  interval = true;
+  displayRaised += raisedStep;
+  displayDonors += donorsStep;
+  displayRaised = Math.min(displayRaised, realRaised);
+  displayDonors = Math.min(displayDonors, realDonors);
+  document.querySelectorAll('div.progress-bar').forEach(function (div) {
+    div.querySelector('progress').setAttribute('value', displayRaised);
+    var raised = div.querySelector('div.raised');
+    raised.querySelector('.value').innerHTML = "\xA3".concat(thousands(displayRaised));
+    raised.querySelector('.text').innerHTML = 'Raised';
+    var donors = div.querySelector('div.donors');
+    donors.querySelector('.value').innerHTML = thousands(displayDonors);
+    donors.querySelector('.text').innerHTML = 'Donations';
+  });
+
+  if (!realRaised || displayRaised < realRaised) {
+    setTimeout(updater, intervalPeriod);
+  } else {
+    interval = null;
+  }
+}
+
+updater();
+firebase.initializeApp({
+  apiKey: 'AIzaSyCpaVRwkw239CGAmcOJWIyzelWdA1SBkXo',
+  databaseURL: 'https://meals4nhs.firebaseio.com',
+  projectId: 'meals4nhs',
+  appId: '1:820347843170:web:9c55207c4f680e275a173b'
+});
+var db = firebase.firestore();
+db.collection('aggregates').doc('donations').get().then(function (docRef) {
+  var donations = docRef.data();
+
+  var _docRef$data = docRef.data(),
+      donorbox = _docRef$data.donorbox,
+      sponsors = _docRef$data.sponsors;
+
+  realRaised = donorbox.amount + sponsors.amount;
+  realDonors = donorbox.donors + sponsors.donors;
+  var steps = movingTime / intervalPeriod;
+  raisedStep = (realRaised - displayRaised) / steps;
+  donorsStep = (realDonors - displayDonors) / steps;
+
+  if (!interval) {
+    updater();
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/modules/lazyload/index.js":
+/*!************************************************!*\
+  !*** ./resources/js/modules/lazyload/index.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utilities_selectors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @utilities/selectors */ "./resources/js/utilities/selectors/index.js");
+/* harmony import */ var _utilities_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @utilities/helpers */ "./resources/js/utilities/helpers/index.js");
+
+
+
+var Lazyload = function Lazyload() {
+  // lazyload our images
+  var images = _utilities_selectors__WEBPACK_IMPORTED_MODULE_0__["default"].wrapper.querySelectorAll('[data-lazy]');
+
+  if (Object(_utilities_helpers__WEBPACK_IMPORTED_MODULE_1__["exists"])(images)) {
+    // options
+    var options = {
+      threshold: 0.5
+    };
+
+    var preloadImage = function preloadImage(img) {
+      // find and store the image's data-lazy attribute
+      // commented out for now, but if you want to go the extra mile, then you can do all the srcset attribute stuff on the images ;)
+      // const srcset = img.dataset.srcset
+      var src = img.dataset.lazy;
+      img.src = src; // img.srcset = srcset
+      // add a class of loaded
+      // we can then use this as a hook for fade-in animations etc
+
+      img.classList.add('loaded');
+    };
+
+    var lazyLoad = new IntersectionObserver(function (entries, lazyLoad) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          preloadImage(entry.target);
+          lazyLoad.unobserve(entry.target);
+        }
+      });
+    }, options);
+    images.forEach(function (image) {
+      lazyLoad.observe(image);
+    });
+  }
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Lazyload);
+
+/***/ }),
+
+/***/ "./resources/js/utilities/helpers/index.js":
+/*!*************************************************!*\
+  !*** ./resources/js/utilities/helpers/index.js ***!
+  \*************************************************/
+/*! exports provided: page, exists */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "page", function() { return page; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exists", function() { return exists; });
+/* harmony import */ var _utilities_selectors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @utilities/selectors */ "./resources/js/utilities/selectors/index.js");
+
+/**
+ * @description Test if the body id is something
+ * @param  		{string}
+ * @return 		{bool}
+ *
+ */
+
+var page = function page(name) {
+  if (!name) {
+    return _utilities_selectors__WEBPACK_IMPORTED_MODULE_0__["default"].body.getAttribute('id');
+  }
+
+  return _utilities_selectors__WEBPACK_IMPORTED_MODULE_0__["default"].body.getAttribute('id') == name;
+};
+/**
+ * @description Check if element exists the page
+ * @param  		{string} Element selector
+ * @param  		{string} Minimum number of elements
+ * @return 		{bool}
+ */
+
+
+var exists = function exists(el, limit) {
+  return el.length > 0;
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/js/utilities/selectors/index.js":
+/*!***************************************************!*\
+  !*** ./resources/js/utilities/selectors/index.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var $$ = {
+  body: document.querySelector('body'),
+  wrapper: document.getElementById('wrapper'),
+  header: document.getElementById('header'),
+  nav: document.getElementById('nav'),
+  hero: document.getElementById('hero'),
+  main: document.getElementById('main'),
+  containerCentre: document.getElementById('container-centre'),
+  containerRight: document.getElementById('container-right'),
+  preFooter: document.getElementById('pre-footer'),
+  footer: document.getElementById('footer'),
+  mobileNav: document.getElementById('mobile-nav'),
+  mobileNavToggle: document.getElementById('mobile-nav-toggle')
+};
+/* harmony default export */ __webpack_exports__["default"] = ($$);
+
+/***/ }),
+
+/***/ "./resources/sass/main.scss":
+/*!**********************************!*\
+  !*** ./resources/sass/main.scss ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 0:
+/*!***************************************************************!*\
+  !*** multi ./resources/js/main.js ./resources/sass/main.scss ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! /Users/jonathanburch/Documents/GitHub/meals-for-the-nhs/resources/js/main.js */"./resources/js/main.js");
+module.exports = __webpack_require__(/*! /Users/jonathanburch/Documents/GitHub/meals-for-the-nhs/resources/sass/main.scss */"./resources/sass/main.scss");
+
+
+/***/ })
+
+/******/ });

@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<a class="sr-only" href="#main">Skip to content</a>
+
+<div id="wrapper" class="wrapper flex flex-col relative min-h-screen">
+
+    {# include header #}
+    {% include "components/header.njk" %}
+
+    {# include content #}
+    {{ content | safe }}
+
+    {# include footer #}
+    {% include "components/footer.njk" %}
+
+</div>
+
+{# include mobile nav #}
+{% include "components/mobile-nav.njk" %}
