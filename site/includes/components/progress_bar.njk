@@ -2,15 +2,15 @@
     <progress value="{{ buildtime_total_sponsorship }}" max="{{ site.fundraising_goal }}"></progress>
     <div class="flex justify-between">
         <div class="raised">
-            <p class="value md:text-xl text-blue-800 font-bold"></p>
+            <p class="value text-sm md:text-lg lg:text-xl text-blue-800 font-bold"></p>
             <p class="text text-sm text-gray-500">Loading donations...</p>
         </div>
         <div class="donors">
-            <p class="value md:text-xl text-blue-800 font-bold"></p>
+            <p class="value text-sm md:text-lg lg:text-xl text-blue-800 font-bold"></p>
             <p class="text text-sm text-gray-500"></p>
         </div>
         <div class="">
-            <p class="md:text-xl text-blue-800 font-bold">£{{ site.fundraising_goal | thousands }}</p>
+            <p class="text-sm md:text-lg lg:text-xl text-blue-800 font-bold">£{{ site.fundraising_goal | thousands }}</p>
             <p class="text-sm text-gray-500">Goal</p>
         </div>
     </div>
