@@ -12,6 +12,9 @@ pp:
 	@echo "$(BOLD)Creating hospitals...$(RESET)"
 	@python3 ./bin/create-hospitals.py
 	@echo "--------------------------------------------------------"
+	@echo "$(BOLD)Creating team...$(RESET)"
+	@python3 ./bin/create-team.py
+	@echo "--------------------------------------------------------"
 	@echo "meals are ready to roll"
 	@echo "--------------------------------------------------------"
 

@@ -1,7 +1,36 @@
 ---
 layout: page
-meta_title: Team
-meta_description: Who's in the team?
-body_class: team
-title: Meals for the NHS
 ---
+
+<main id="main" class="main flex flex-1 h-full flex-col focus:outline-none" tabindex="-1">
+    <div class="">
+        <div class="container md:w-4/5 mx-auto justify-center text-center px-4 py-6 md:py-16">
+            <h3 class="text-2xl md:text-4xl font-bold mb-6 lg:mb-12">Team</h3>
+            <ul class="flex flex-wrap justify-center">
+                {% for teamMember in data.team.records %}
+                    <li class="w-full md:w-1/2 lg:w-1/4 flex p-2 md:p-3">
+                        <div class="border rounded-lg flex-grow bg-white flex flex-col overflow-hidden">
+                            <div class="bg-cover bg-top pb-square w-full" style="background-image: url('/images/team/{{ teamMember.fields["Name"] | slug }}.png')"></div>
+                            <div class="p-4 flex flex-col flex-grow">
+                                <h4 class="font-bold pb-1">{{ teamMember.fields["Name"] }}</h4>
+                                {% if teamMember.fields["Team"] %}
+                                    <div class="pb-2">
+                                        <span class="bg-blue-100 rounded py-1 px-2 text-xs">
+                                            {{ teamMember.fields["Team"] }}
+                                        </span>
+                                    </div>
+                                {% endif %}
+                                <p class="text-sm">{{ teamMember.fields["Bio"] | truncate(100) }}</p>
+                            </div>
+                            {% if teamMember.fields["Link"] %}
+                                <div class="px-4 py-2 border-t">
+                                    <p class="text-sm"><a href="{{ teamMember.fields["Link"] }}">Link</a></p>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</main>

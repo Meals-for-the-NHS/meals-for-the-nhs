@@ -12,17 +12,20 @@ if not APP_ID or not APP_KEY:
     exit(-1)
 TABLE_TO_FILENAME = {
         'Hospitals': 'hospitals.json',
-        'Sponsor a Hospital': 'sponsors.json'
+        'Sponsor a Hospital': 'sponsors.json',
+        'Team': 'team.json'
 }
 
 TABLE_VIEW = {
         'Hospitals': 'Receiving Orders',
-        'Sponsor a Hospital': 'Website data'
+        'Sponsor a Hospital': 'Website data',
+        'Team': 'On Website'
 }
 
 TABLE_FIELDS = {
         'Hospitals': ['Hospital Name', 'Number of orders', 'Total Meals'],
-        'Sponsor a Hospital': ['Which hospital?', 'Amount for Website']
+        'Sponsor a Hospital': ['Which hospital?', 'Amount for Website'],
+        'Team': ['Name', 'Link', 'Team', 'Bio', 'Picture']
 }
 
 OUTPUT_DIR = 'site/globals/data'
