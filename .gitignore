@@ -6,9 +6,11 @@ package-lock.json
 site/globals/data/*
 site/hospital/*
 site/team/*
+images/team/*
 dist/
 
 !*/readme.md
+!*/.gitkeep
 !site/team/index.njk
 !site/globals/data/readme.md
 .secrets
