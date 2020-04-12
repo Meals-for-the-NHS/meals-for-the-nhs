@@ -5,16 +5,12 @@
             "url": "/"
         },
         {
-            "label": "About",
-            "url": "/about/"
+            "label": "Team",
+            "url": "/team/"
         },
         {
-            "label": "Blog",
-            "url": "/blog/"
-        },
-        {
-            "label": "Contact",
-            "url": "/contact/"
+            "label": "FAQs",
+            "url": "http://faqs.mealsforthenhs.com"
         }
     ]
 }
