@@ -1,23 +1,19 @@
-<div class="">
-    <div class="container md:w-4/5 mx-auto justify-center text-center px-4 py-6 md:py-16">
-        <h3 class="font-bold text-2xl md:text-4xl pb-3">Meet the team</h3>
-        <div class="lg:w-4/5 text-center mx-auto pb-8">
-            <p class="text-lg md:text-xl text-gray-700 pb-4">We're a group of Londoners with friends and loved ones working in the NHS. We know how important it is for all of us that the work continues, and feel compelled to help.</p>
-        </div>
-        <div class="rounded bg-center bg-cover bg-no-repeat pb-half w-full shadow-2xl" style="background-image: url('/images/photos/team.jpg')"></div>
-        <div class="md:w-3/5 text-center mx-auto pt-3 pb-8">
-            <p class="md:text-lg text-gray-600">House Party selfie! Clockwise from top left:
-                <a target="_blank" href="https://www.linkedin.com/in/sapana-agrawal-34949022">Sapana</a>,
-                <a target="_blank" href="https://uk.linkedin.com/in/anya-muir-wood-a37725a1">Anya</a>,
-                <a target="_blank" href="https://twitter.com/EmmaRuth18">Emma</a>,
-                <a target="_blank" href="https://www.linkedin.com/in/jessie-varma-13795679/">Jessie</a>,
-                <a target="_blank" href="https://www.linkedin.com/in/maia-muir-wood-b590184a">Maia</a>,
-                <a target="_blank" href="https://twitter.com/jonnyburch">Jonny</a>,
-                <a target="_blank" href="https://www.linkedin.com/in/alickvarma/">Alick</a>,
-                <a target="_blank" href="https://twitter.com/muirwd">Andrew</a>,
-                <a target="_blank" href="https://www.linkedin.com/in/cal1n/">Calin</a> and
-                <a target="_blank" href="https://www.linkedin.com/in/sallyhughes/">Sally</a>
-            </p>
+<div class="container md:w-4/5 mx-auto justify-center text-center px-4 py-6 md:py-16">
+    <ul class="flex flex-wrap mx-auto justify-center pt-8 md:pt-16 lg:pt-20 z-10 px-8 pb-8">
+        {% for teamMember in data.team.records %}
+            <li class="-mx-1">
+                <div class="flex justify-center items-center pt-6">
+                    <div class="bg-cover bg-top pb-12 w-12 rounded-full shadow-2xl -mt-8" style="background-image: url('/images/team/{{ teamMember.fields["Name"] | slug }}.png')"></div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="md:w-4/5 lg:w-2/3 mx-auto justify-center text-center pb-8">
+        <h3 class="text-2xl md:text-4xl font-bold pb-2 lg:pb-6">Powered by volunteers</h3>
+        <p class="text-lg md:text-xl text-gray-700 pb-4">This all started with a small group of friends, but delivering hundreds of thousands of meals needed help. We now have a small army of incredibly talented and experienced operators, tech and process geeks and logistics experts from companies including Deliveroo, Uber, Monzo, Spotify, Google, McKinsey and many more, all giving their time.</p>
+        <p class="text-lg md:text-xl text-gray-700 pb-4">Together we're working out how to spend your donations in the best possible way to get food to NHS staff.</p>
+        <div class="py-2 md:px-2 flex justify-center">
+            <a class="bg-gray-200 hover:bg-gray-300 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 rounded cursor-pointer text-blue-800 text-xl" href="/team">Meet the team</a>
         </div>
     </div>
 </div>

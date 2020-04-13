@@ -1,6 +1,6 @@
 
 // Import local modules
-// import '@modules/mobile-nav'
+import '@modules/mobile-nav'
 import '@modules/lazyload'
 
 const thousands = n => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
@@ -14,13 +14,13 @@ let interval = null
 
 function updater() {
   interval = true
-  
+
   displayRaised += raisedStep
   displayDonors += donorsStep
 
   displayRaised = Math.min(displayRaised, realRaised)
   displayDonors = Math.min(displayDonors, realDonors)
-  
+
   document.querySelectorAll('div.progress-bar').forEach((div) => {
     div.querySelector('progress').setAttribute('value', displayRaised)
     const raised = div.querySelector('div.raised')
@@ -60,8 +60,8 @@ db.collection('aggregates').doc('donations')
     const steps = movingTime / intervalPeriod
     raisedStep = (realRaised - displayRaised) / steps
     donorsStep = (realDonors - displayDonors) / steps
-    
+
     if (!interval) {
       updater()
-    }    
+    }
   })
