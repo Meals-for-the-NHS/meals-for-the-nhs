@@ -5,6 +5,10 @@
             "url": "/"
         },
         {
+            "label": "Dashboard",
+            "url": "/dashboard/"
+        },
+        {
             "label": "Team",
             "url": "/team/"
         }

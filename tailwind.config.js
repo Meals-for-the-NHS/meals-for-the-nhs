@@ -17,6 +17,11 @@ module.exports = {
         'square': '100%',
         'double': '200%'
       }
+    },
+    inset: {
+      '0': 0,
+      '16': '4rem',
+      '1/2': '50%'
     }
   },
   variants: {},

@@ -2,19 +2,62 @@
 layout: dashboard
 meta_title: Live Dashboard
 meta_description: What's happening right now?
-body_class: dashboard
+body_class: absolute h-full w-full overflow-hidden
 title: Meals for the NHS
 ---
 
-# Who are the primary users of this page - and what is their problem:
-- As internal PR - I want a great graphic to show press when they ask for stats (against the key metrics we care about = coverage)
-- As internal social media - I want a great graphic to show our progress (against the key metrics we care about = coverage)
-- As internal Donor CRM - I want a great graphic to show our progress (against the key metrics we care about = coverage)
-- As external donor - especially HNW / corporates - I want a sense of (a) how big you are, and (b) how much you understand what you measure yourself against - and how you track that
-
-# Headlines from our chat this morning:
-- Show # cities, # of hospitals onboarded, # of hospitals on waiting list, # restaurants we work with (v1)
-- Maybe on mobile - keep map static image and just show blobs of cities with table beneath with list of hospitals and list of - restaurants for v1 (mapping intractable map comes later for web version)
-- For restaurants, aim to show following fields over time: 1) health rating, 2) £ / meal, 3) max / min wait time
-- Create page so it's screen shotable for CRM, Social Sharing and PR
-- One question we always get asked is which cities are you in - so if above the static map, you could just see the list of cities we are currently in - awesome (that is available in Airtable)
+<div class="absolute h-full w-full top-0 bottom-0 left-0 right-0">
+    {% include "components/header.njk" %}
+    <div class="absolute hidden md:block top-16 bottom-0 left-0 right-1/2" class="overflow-hidden">
+        <iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=London&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </div>
+    <div class="absolute right-0 top-16 bottom-0 left-0 md:left-1/2 p-4 overflow-auto">
+        <div class="flex flex-wrap">
+            <div class="w-full md:w-1/2 text-center p-2">
+                <div class="border rounded p-4">
+                    <div class="text-4xl font-bold">£1,046,123</div>
+                    <div class="text-xl text-gray-500">Money raised</div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 text-center p-2">
+                <div class="border rounded p-4">
+                    <div class="text-4xl font-bold">12,034</div>
+                    <div class="text-xl text-gray-500">Donors</div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 text-center p-2">
+                <div class="border rounded p-4">
+                    <div class="text-4xl font-bold">23,340</div>
+                    <div class="text-xl text-gray-500">Meals delivered</div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 text-center p-2">
+                <div class="border rounded p-4">
+                    <div class="text-4xl font-bold">332</div>
+                    <div class="text-xl text-gray-500">Orders completed</div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 text-center p-2">
+                <div class="border rounded p-4">
+                    <div class="text-4xl font-bold">97</div>
+                    <div class="text-xl text-gray-500">Hospitals receiving food</div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 text-center p-2">
+                <div class="border rounded p-4">
+                    <div class="text-4xl font-bold">192</div>
+                    <div class="text-xl text-gray-500">Food providers</div>
+                </div>
+            </div>
+            <div class="w-full text-center p-2">
+                <div class="border rounded p-4">
+                    <div class="text-4xl font-bold">13</div>
+                    <div class="text-xl text-gray-500">Cities covered</div>
+                    <ul class="flex justify-center pt-3">
+                        <li><div class="bg-blue-100 rounded py-1 px-2 text-lg text-gray-500">London</div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
