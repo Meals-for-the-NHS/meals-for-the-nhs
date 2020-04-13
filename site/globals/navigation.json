@@ -7,10 +7,6 @@
         {
             "label": "Team",
             "url": "/team/"
-        },
-        {
-            "label": "FAQs",
-            "url": "http://faqs.mealsforthenhs.com"
         }
     ]
 }

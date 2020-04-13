@@ -760,7 +760,7 @@ h1, h2, h3 {
 }
 
 .mobile-nav-toggle .mobile-nav-icon-line {
-  height: 2px;
+  height: 1px;
 }
 
 .mobile-nav-toggle.menu-toggle-active .mobile-nav-icon-line {
@@ -769,7 +769,7 @@ h1, h2, h3 {
 }
 
 .mobile-nav-toggle.menu-toggle-active .mobile-nav-icon-line:nth-child(1) {
-  transform: rotate(45deg) translateY(3px);
+  transform: rotate(45deg) translateY(2px);
 }
 
 .mobile-nav-toggle.menu-toggle-active .mobile-nav-icon-line:nth-child(2) {
@@ -777,7 +777,7 @@ h1, h2, h3 {
 }
 
 .mobile-nav-toggle.menu-toggle-active .mobile-nav-icon-line:nth-child(3) {
-  transform: rotate(-45deg) translateY(-3px);
+  transform: rotate(-45deg) translateY(-2px);
 }
 
 .mobile-nav {

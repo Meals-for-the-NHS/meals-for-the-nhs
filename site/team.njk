@@ -3,34 +3,73 @@ layout: page
 ---
 
 <main id="main" class="main flex flex-1 h-full flex-col focus:outline-none" tabindex="-1">
-    <div class="">
-        <div class="container md:w-4/5 mx-auto justify-center text-center px-4 py-6 md:py-16">
-            <h3 class="text-2xl md:text-4xl font-bold mb-6 lg:mb-12">Team</h3>
-            <ul class="flex flex-wrap justify-center">
-                {% for teamMember in data.team.records %}
-                    <li class="w-full md:w-1/2 lg:w-1/4 flex p-2 md:p-3">
-                        <div class="border rounded-lg flex-grow bg-white flex flex-col overflow-hidden">
-                            <div class="bg-cover bg-top pb-square w-full" style="background-image: url('/images/team/{{ teamMember.fields["Name"] | slug }}.png')"></div>
-                            <div class="p-4 flex flex-col flex-grow">
-                                <h4 class="font-bold pb-1">{{ teamMember.fields["Name"] }}</h4>
-                                {% if teamMember.fields["Team"] %}
-                                    <div class="pb-2">
-                                        <span class="bg-blue-100 rounded py-1 px-2 text-xs">
-                                            {{ teamMember.fields["Team"] }}
-                                        </span>
-                                    </div>
-                                {% endif %}
-                                <p class="text-sm">{{ teamMember.fields["Bio"] | truncate(100) }}</p>
-                            </div>
-                            {% if teamMember.fields["Link"] %}
-                                <div class="px-4 py-2 border-t">
-                                    <p class="text-sm"><a href="{{ teamMember.fields["Link"] }}">Link</a></p>
+    <div class="absolute l-0 r-0 h-20 lg:h-24 w-full bg-blue-800"></div>
+    <ul class="flex flex-wrap mx-auto justify-center pt-8 md:pt-16 lg:pt-20 z-10 px-8">
+        {% for teamMember in data.team.records %}
+            <li class="-mx-1">
+                <div class="flex justify-center items-center pt-6">
+                    <div class="bg-cover bg-top pb-12 w-12 rounded-full shadow-2xl -mt-8" style="background-image: url('/images/team/{{ teamMember.fields["Name"] | slug }}.png')"></div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="container md:w-4/5 mx-auto justify-center text-center px-4 py-6 md:py-16">
+        <div class="md:w-4/5 lg:w-2/3 mx-auto justify-center text-center pb-8">
+            <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold pb-2 lg:pb-6">We're growing to meet the need</h1>
+            <p class="text-lg md:text-xl text-gray-700 pb-4">This all started with a small group of friends, but delivering hundreds of thousands of meals needed help. We now have a small army of incredibly talented and experienced operators, tech and process geeks and logistics experts from companies including Deliveroo, Uber, Monzo, Spotify, Google, McKinsey and many more, all giving their time.</p>
+            <p class="text-lg md:text-xl text-gray-700 pb-4">Together we're working out how to spend your donations in the best possible way to get food to NHS staff.</p>
+        </div>
+        <div class="rounded bg-center bg-cover bg-no-repeat pb-half w-full shadow-2xl" style="background-image: url('/images/photos/team.jpg')"></div>
+        <div class="md:w-3/5 text-center mx-auto pt-3 pb-8">
+            <p class="md:text-lg text-gray-600">The original crew! Clockwise from top left:
+                <a target="_blank" href="https://www.linkedin.com/in/sapana-agrawal-34949022">Sapana</a>,
+                <a target="_blank" href="https://uk.linkedin.com/in/anya-muir-wood-a37725a1">Anya</a>,
+                <a target="_blank" href="https://twitter.com/EmmaRuth18">Emma</a>,
+                <a target="_blank" href="https://www.linkedin.com/in/jessie-varma-13795679/">Jessie</a>,
+                <a target="_blank" href="https://www.linkedin.com/in/maia-muir-wood-b590184a">Maia</a>,
+                <a target="_blank" href="https://twitter.com/jonnyburch">Jonny</a>,
+                <a target="_blank" href="https://www.linkedin.com/in/alickvarma/">Alick</a>,
+                <a target="_blank" href="https://twitter.com/muirwd">Andrew</a>,
+                <a target="_blank" href="https://www.linkedin.com/in/cal1n/">Calin</a> and
+                <a target="_blank" href="https://www.linkedin.com/in/sallyhughes/">Sally</a>
+            </p>
+        </div>
+    </div>
+    <div class="container md:w-4/5 mx-auto justify-center text-center px-4 py-6 md:py-16">
+        <h3 class="text-2xl md:text-4xl font-bold pb-2 lg:pb-8">Some of the current team</h3>
+        <ul class="flex flex-wrap justify-center">
+            {% for teamMember in data.team.records %}
+                <li class="w-full md:w-1/2 lg:w-1/4 flex p-2 md:p-3">
+                    <div class="border border-blue-800 rounded-lg flex-grow bg-white flex flex-col mt-12">
+                        <div class="flex justify-center items-center pt-6">
+                            <div class="bg-cover bg-top pb-20 w-20 rounded-full shadow-2xl -mt-16" style="background-image: url('/images/team/{{ teamMember.fields["Name"] | slug }}.png')"></div>
+                        </div>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h4 class="font-bold pb-1">{{ teamMember.fields["Name"] }}</h4>
+                            {% if teamMember.fields["Team"] %}
+                                <div class="pb-2">
+                                    <span class="bg-blue-100 rounded py-1 px-2 text-xs">
+                                        {{ teamMember.fields["Team"] }}
+                                    </span>
                                 </div>
                             {% endif %}
+                            {# <p class="text-sm">{{ teamMember.fields["Bio"] | truncate(140) }}</p> #}
                         </div>
-                    </li>
-                {% endfor %}
-            </ul>
+                        {% if teamMember.fields["Link"] %}
+                            <a target="" class="px-4 py-2 border-t hover:bg-blue-100 transition-all duration-300 ease-in-out rounded-b-lg" href="{{ teamMember.fields["Link"] }}">
+                                <p class="text-sm">
+                                    →
+                                </p>
+                            </a>
+                        {% endif %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="container md:w-4/5 mx-auto justify-center text-center px-4 py-6 md:py-16">
+        <div class="py-2 md:px-2 flex justify-center">
+            <a class="bg-gray-200 hover:bg-gray-300 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 rounded cursor-pointer text-blue-800 text-xl" href="/volunteers">Register your interest in volunteering</a>
         </div>
     </div>
 </main>
