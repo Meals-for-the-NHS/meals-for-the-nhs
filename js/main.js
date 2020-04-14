@@ -95,10 +95,74 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_lazyload__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @modules/lazyload */ "./resources/js/modules/lazyload/index.js");
+/* harmony import */ var _modules_mobile_nav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @modules/mobile-nav */ "./resources/js/modules/mobile-nav/index.js");
+/* harmony import */ var _modules_lazyload__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @modules/lazyload */ "./resources/js/modules/lazyload/index.js");
 // Import local modules
-// import '@modules/mobile-nav'
 
+
+
+var thousands = function thousands(n) {
+  return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
+
+var realRaised = null,
+    realDonors = null;
+var displayRaised = 0,
+    displayDonors = 0;
+var raisedStep = 10000,
+    donorsStep = 10;
+var intervalPeriod = 50;
+var movingTime = 2000;
+var interval = null;
+
+function updater() {
+  interval = true;
+  displayRaised += raisedStep;
+  displayDonors += donorsStep;
+  displayRaised = Math.min(displayRaised, realRaised);
+  displayDonors = Math.min(displayDonors, realDonors);
+  document.querySelectorAll('div.progress-bar').forEach(function (div) {
+    div.querySelector('progress').setAttribute('value', displayRaised);
+    var raised = div.querySelector('div.raised');
+    raised.querySelector('.value').innerHTML = "\xA3".concat(thousands(displayRaised));
+    raised.querySelector('.text').innerHTML = 'Raised';
+    var donors = div.querySelector('div.donors');
+    donors.querySelector('.value').innerHTML = thousands(displayDonors);
+    donors.querySelector('.text').innerHTML = 'Donations';
+  });
+
+  if (!realRaised || displayRaised < realRaised) {
+    setTimeout(updater, intervalPeriod);
+  } else {
+    interval = null;
+  }
+}
+
+updater();
+firebase.initializeApp({
+  apiKey: 'AIzaSyCpaVRwkw239CGAmcOJWIyzelWdA1SBkXo',
+  databaseURL: 'https://meals4nhs.firebaseio.com',
+  projectId: 'meals4nhs',
+  appId: '1:820347843170:web:9c55207c4f680e275a173b'
+});
+var db = firebase.firestore();
+db.collection('aggregates').doc('donations').get().then(function (docRef) {
+  var donations = docRef.data();
+
+  var _docRef$data = docRef.data(),
+      donorbox = _docRef$data.donorbox,
+      sponsors = _docRef$data.sponsors;
+
+  realRaised = donorbox.amount + sponsors.amount;
+  realDonors = donorbox.donors + sponsors.donors;
+  var steps = movingTime / intervalPeriod;
+  raisedStep = (realRaised - displayRaised) / steps;
+  donorsStep = (realDonors - displayDonors) / steps;
+
+  if (!interval) {
+    updater();
+  }
+});
 
 /***/ }),
 
@@ -153,6 +217,35 @@ var Lazyload = function Lazyload() {
 }();
 
 /* harmony default export */ __webpack_exports__["default"] = (Lazyload);
+
+/***/ }),
+
+/***/ "./resources/js/modules/mobile-nav/index.js":
+/*!**************************************************!*\
+  !*** ./resources/js/modules/mobile-nav/index.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utilities_selectors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @utilities/selectors */ "./resources/js/utilities/selectors/index.js");
+
+
+var MobileNav = function MobileNav() {
+  _utilities_selectors__WEBPACK_IMPORTED_MODULE_0__["default"].mobileNavToggle.addEventListener('click', function () {
+    this.classList.toggle('menu-toggle-active');
+    _utilities_selectors__WEBPACK_IMPORTED_MODULE_0__["default"].mobileNav.classList.toggle('menu-visible'); // set aria-expanded attribute on menu toggle button
+
+    if (this.getAttribute('aria-expanded') === 'false') {
+      this.setAttribute('aria-expanded', 'true');
+    } else {
+      this.setAttribute('aria-expanded', 'false');
+    }
+  });
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (MobileNav);
 
 /***/ }),
 

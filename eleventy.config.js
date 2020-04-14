@@ -46,10 +46,12 @@ module.exports = eleventyConfig => {
 
     // Layout aliases
     eleventyConfig.addLayoutAlias('default', 'layouts/default.njk')
+    eleventyConfig.addLayoutAlias('page', 'layouts/page.njk')
     eleventyConfig.addLayoutAlias('post', 'layouts/post.njk')
     eleventyConfig.addLayoutAlias('form', 'layouts/form.njk')
     eleventyConfig.addLayoutAlias('googleform', 'layouts/googleform.njk')
     eleventyConfig.addLayoutAlias('hospital', 'layouts/hospital.njk')
+    eleventyConfig.addLayoutAlias('dashboard', 'layouts/dashboard.njk')
 
     // Include our static assets
     eleventyConfig.addPassthroughCopy("css")

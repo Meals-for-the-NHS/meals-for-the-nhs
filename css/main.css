@@ -739,7 +739,7 @@ h1, h2, h3 {
 
 .form .input:focus,
 .form .textarea:focus {
-  border-color: #ed64a6;
+  border-color: #4299e1;
   outline: 0;
 }
 
@@ -760,16 +760,16 @@ h1, h2, h3 {
 }
 
 .mobile-nav-toggle .mobile-nav-icon-line {
-  height: 2px;
+  height: 1px;
 }
 
 .mobile-nav-toggle.menu-toggle-active .mobile-nav-icon-line {
   margin: 0;
-  background-color: #ed64a6;
+  background-color: #4299e1;
 }
 
 .mobile-nav-toggle.menu-toggle-active .mobile-nav-icon-line:nth-child(1) {
-  transform: rotate(45deg) translateY(3px);
+  transform: rotate(45deg) translateY(2px);
 }
 
 .mobile-nav-toggle.menu-toggle-active .mobile-nav-icon-line:nth-child(2) {
@@ -777,7 +777,7 @@ h1, h2, h3 {
 }
 
 .mobile-nav-toggle.menu-toggle-active .mobile-nav-icon-line:nth-child(3) {
-  transform: rotate(-45deg) translateY(-3px);
+  transform: rotate(-45deg) translateY(-2px);
 }
 
 .mobile-nav {
