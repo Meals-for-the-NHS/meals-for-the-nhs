@@ -12,5 +12,6 @@ for record in data["records"]:
     image_url = (name.replace(" ", "-") + '.png').lower()
 
     r = requests.get(image, allow_redirects=True)
-    open("images/team/" + image_url.lower(), 'wb').write(r.content)
+    with open("images/team/" + image_url.lower(), 'wb') as f:
+        f.write(r.content)
     print("Saving image/" + image_url)
