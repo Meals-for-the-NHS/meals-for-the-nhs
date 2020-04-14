@@ -6,6 +6,9 @@ body_class: absolute h-full w-full overflow-hidden
 title: Meals for the NHS
 ---
 
+{% set money_raised = data.summary.donations.donorbox.amount + data.summary.donations.sponsors.amount %}
+{% set num_donors = data.summary.donations.donorbox.donors + data.summary.donations.sponsors.donors %}
+
 <div class="absolute h-full w-full top-0 bottom-0 left-0 right-0">
     {% include "components/header.njk" %}
     <div class="absolute hidden md:block top-16 bottom-0 left-0 right-1/2" class="overflow-hidden">
@@ -15,49 +18,74 @@ title: Meals for the NHS
         <div class="flex flex-wrap">
             <div class="w-full md:w-1/2 text-center p-2">
                 <div class="border rounded p-4">
-                    <div class="text-4xl font-bold">£1,046,123</div>
+                    <div class="text-4xl font-bold">
+						£{{ money_raised | thousands }}
+					</div>
                     <div class="text-xl text-gray-500">Money raised</div>
                 </div>
             </div>
             <div class="w-full md:w-1/2 text-center p-2">
                 <div class="border rounded p-4">
-                    <div class="text-4xl font-bold">12,034</div>
+                    <div class="text-4xl font-bold">
+						{{ num_donors | thousands }}
+					</div>
                     <div class="text-xl text-gray-500">Donors</div>
                 </div>
             </div>
             <div class="w-full md:w-1/2 text-center p-2">
                 <div class="border rounded p-4">
-                    <div class="text-4xl font-bold">23,340</div>
+                    <div class="text-4xl font-bold">
+						{{ data.summary.num_meals_delivered | thousands }}
+					</div>
                     <div class="text-xl text-gray-500">Meals delivered</div>
                 </div>
             </div>
             <div class="w-full md:w-1/2 text-center p-2">
                 <div class="border rounded p-4">
-                    <div class="text-4xl font-bold">332</div>
+                    <div class="text-4xl font-bold">
+						{{ data.summary.num_orders_completed }}
+					</div>
                     <div class="text-xl text-gray-500">Orders completed</div>
                 </div>
             </div>
             <div class="w-full md:w-1/2 text-center p-2">
                 <div class="border rounded p-4">
-                    <div class="text-4xl font-bold">97</div>
+                    <div class="text-4xl font-bold">
+						{{ data.summary.num_hospitals_received }}
+					</div>
                     <div class="text-xl text-gray-500">Hospitals receiving food</div>
                 </div>
             </div>
             <div class="w-full md:w-1/2 text-center p-2">
                 <div class="border rounded p-4">
-                    <div class="text-4xl font-bold">192</div>
+                    <div class="text-4xl font-bold">
+						{{ data.summary.num_providers_used }}
+					</div>
                     <div class="text-xl text-gray-500">Food providers</div>
                 </div>
             </div>
             <div class="w-full text-center p-2">
                 <div class="border rounded p-4">
-                    <div class="text-4xl font-bold">13</div>
+                    <div class="text-4xl font-bold">
+						{{ data.summary.cities_covered.length }}
+					</div>
                     <div class="text-xl text-gray-500">Cities covered</div>
                     <ul class="flex justify-center pt-3">
-                        <li><div class="bg-blue-100 rounded py-1 px-2 text-lg text-gray-500">London</div></li>
+						{% for city in data.summary.cities_covered %}
+							<li>
+								{# this is why when I'm doing HTML, I use 2 space tabs #}
+								<div class="bg-blue-100 rounded py-1 px-2 text-lg text-gray-500">
+									{{ city }}
+								</div>
+							</li>
+						{% endfor %}
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+ {% include "scripts/dashboard.js" %}
+</script>

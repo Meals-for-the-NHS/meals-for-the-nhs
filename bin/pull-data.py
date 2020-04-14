@@ -4,7 +4,7 @@ from pathlib import Path
 from os import environ
 import json
 import time
-import cmd
+import requests
 
 APP_ID = environ.get('APP_ID', None)
 APP_KEY = environ.get('APP_KEY', None)
@@ -38,10 +38,11 @@ tables = {
     }
 }
 
-def main():
+output_dir = Path('site/globals/data')
+
+def pull_airtable():
     # Trying to mimic the time format from the bash implementation
     now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
-    output_dir = Path('site/globals/data')
 
     for table, options in tables.items():
         airtable = Airtable(APP_ID, table, api_key=APP_KEY)
@@ -56,5 +57,12 @@ def main():
 
         print(f'Saved {table} table using {options["view"]} view')
 
+def pull_dashboard():
+    res = requests.get('https://europe-west2-meals4nhs.cloudfunctions.net/api/summary')
+    if res.status_code == 200:
+        with open(output_dir / 'summary.json', 'w') as f:
+            f.write(res.text)
+
 if __name__ == '__main__':
-    main()
+    pull_airtable()
+    pull_dashboard()
