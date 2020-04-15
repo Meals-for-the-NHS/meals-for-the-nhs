@@ -11,6 +11,7 @@ dist/
 
 !*/readme.md
 !*/.gitkeep
+!site/hospital/.gitkeep
 !site/team/index.njk
 !site/globals/data/readme.md
 .secrets
