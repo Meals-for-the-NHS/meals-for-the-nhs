@@ -57,6 +57,7 @@ def pull_airtable():
 
         print(f'Saved {table} table using {options["view"]} view')
 
+
 def pull_dashboard():
     res = requests.get('https://europe-west2-meals4nhs.cloudfunctions.net/api/summary')
     if res.status_code == 200:

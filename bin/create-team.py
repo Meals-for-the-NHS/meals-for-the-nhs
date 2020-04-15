@@ -8,7 +8,7 @@ with open("site/globals/data/team.json") as teams_json:
 
 for record in data["records"]:
     name = record["fields"]["Name"]
-    image = record["fields"]["Picture"][0]["thumbnails"]["full"]["url"]
+    image = record["fields"]["Picture"][0]["thumbnails"]["large"]["url"]
     image_url = (name.replace(" ", "-") + '.png').lower()
     filepath = Path('images') / 'team' / image_url.lower()
 
