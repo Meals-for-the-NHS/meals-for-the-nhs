@@ -22,7 +22,7 @@ tables = {
             'Hospital Name', 'Number of orders', 'Total Meals'
         ]
     },
-    'Sponsor a Hospital': {
+    'Donor pipeline': {
         'filename': 'sponsors.json',
         'view': 'Website data',
         'fields': [

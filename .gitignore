@@ -8,8 +8,8 @@ site/hospital/*
 site/team/*
 images/team/*
 dist/
-css/main.css
-js/main.js
+css/*.css
+js/*.js
 
 !*/readme.md
 !*/.gitkeep
