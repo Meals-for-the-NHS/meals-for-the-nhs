@@ -212,6 +212,4 @@ Promise.all([mapPromise, dataPromise])
         title: hospital['Hospital Name']
       })
     })
-    var markerCluster = new MarkerClusterer(map, hospitals,
-      {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
   })
