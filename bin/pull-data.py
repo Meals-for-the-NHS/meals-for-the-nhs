@@ -1,63 +1,69 @@
-# !/usr/bin/env python3
+#!/usr/bin/env python3
 from airtable import Airtable
+from pathlib import Path
+from os import environ
 import json
-import os
 import time
-import cmd
-APP_ID = os.environ.get('APP_ID', None)
-APP_KEY = os.environ.get('APP_KEY', None)
+import requests
+
+APP_ID = environ.get('APP_ID', None)
+APP_KEY = environ.get('APP_KEY', None)
+
 if not APP_ID or not APP_KEY:
     print("Airtable environment variables not configured, exiting.")
     print("Values are: APP_ID: {}, APP_KEY: {}".format(APP_ID, APP_KEY))
     exit(-1)
-TABLE_TO_FILENAME = {
-        'Hospitals': 'hospitals.json',
-        'Sponsor a Hospital': 'sponsors.json',
-        'Team': 'team.json'
+
+tables = {
+    'Hospitals': {
+        'filename': 'hospitals.json',
+        'view': 'Receiving Orders',
+        'fields': [
+            'Hospital Name', 'Number of orders', 'Total Meals'
+        ]
+    },
+    'Sponsor a Hospital': {
+        'filename': 'sponsors.json',
+        'view': 'Website data',
+        'fields': [
+            'Which hospital?', 'Amount for Website'
+        ]
+    },
+    'Team': {
+        'filename': 'team.json',
+        'view': 'On Website',
+        'fields': [
+            'Name', 'Link', 'Team', 'Bio', 'Picture',
+        ]
+    }
 }
 
-TABLE_VIEW = {
-        'Hospitals': 'Receiving Orders',
-        'Sponsor a Hospital': 'Website data',
-        'Team': 'On Website'
-}
+output_dir = Path('site/globals/data')
 
-TABLE_FIELDS = {
-        'Hospitals': ['Hospital Name', 'Number of orders', 'Total Meals'],
-        'Sponsor a Hospital': ['Which hospital?', 'Amount for Website'],
-        'Team': ['Name', 'Link', 'Team', 'Bio', 'Picture']
-}
+def pull_airtable():
+    # Trying to mimic the time format from the bash implementation
+    now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
 
-OUTPUT_DIR = 'site/globals/data'
+    for table, options in tables.items():
+        airtable = Airtable(APP_ID, table, api_key=APP_KEY)
+        records = airtable.get_all(view=options['view'], fields=options['fields'])
+        to_save = {
+            'updated': now,
+            'records': records
+        }
 
-# Trying to mimic the time format from the bash implementation
-now = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        with open(output_dir / options['filename'], 'w') as f:
+            json.dump(to_save, f, ensure_ascii=False)
 
-def get_records(table, view):
-    airtable = Airtable(APP_ID, table, api_key=APP_KEY)
-    for fields_table, fields in TABLE_FIELDS.items():
-        if table == fields_table:
-            print(fields)
-            return airtable.get_all(view=view, fields=fields)
+        print(f'Saved {table} table using {options["view"]} view')
 
-def remove_file_if_it_exists(path):
-    print(path)
 
-    if os.path.isfile(path):
-        os.unlink(path)
-def save(data_to_save, path):
-    remove_file_if_it_exists(path)
-    with open(path, 'w+') as fp:
-        json.dump(data_to_save, fp, ensure_ascii=False)
-def main():
-    for table, destination in TABLE_TO_FILENAME.items():
-        for view_table, view in TABLE_VIEW.items():
-            if table == view_table:
-                records = get_records(table, view)
-                to_save = {"updated": now, "records": records}
-                target_path = os.path.join(OUTPUT_DIR, destination)
-                save(to_save, target_path)
-                print("Creating " + table + " table using \"" + view + "\" view")
+def pull_dashboard():
+    res = requests.get('https://europe-west2-meals4nhs.cloudfunctions.net/api/summary')
+    if res.status_code == 200:
+        with open(output_dir / 'summary.json', 'w') as f:
+            f.write(res.text)
 
 if __name__ == '__main__':
-    main()
+    pull_airtable()
+    pull_dashboard()
