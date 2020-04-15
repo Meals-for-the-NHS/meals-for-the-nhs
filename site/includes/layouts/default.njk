@@ -50,7 +50,7 @@
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 </head>
 
-    <body {% if body_class %} id="{{ body_class }}"{% endif %} class="text-blue-900 leading-normal text-lg">
+    <body {% if body_class %} id="{{ body_class }}"{% endif %} class="text-blue-900 leading-normal text-lg {% if body_class %}{{ body_class }}{% endif %}">
 
         {{ content | safe }}
 
