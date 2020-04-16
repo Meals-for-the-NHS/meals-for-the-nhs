@@ -5,16 +5,12 @@
             "url": "/"
         },
         {
-            "label": "About",
-            "url": "/about/"
+            "label": "Dashboard",
+            "url": "/dashboard/"
         },
         {
-            "label": "Blog",
-            "url": "/blog/"
-        },
-        {
-            "label": "Contact",
-            "url": "/contact/"
+            "label": "Team",
+            "url": "/team/"
         }
     ]
 }

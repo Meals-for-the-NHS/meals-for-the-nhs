@@ -4,8 +4,16 @@ package-lock.json
 
 # Ignore generated data
 site/globals/data/*
+site/hospital/*
+site/team/*
+images/team/*
 dist/
+css/*.css
+js/*.js
 
 !*/readme.md
+!*/.gitkeep
+!site/hospital/.gitkeep
+!site/team/index.njk
 !site/globals/data/readme.md
 .secrets

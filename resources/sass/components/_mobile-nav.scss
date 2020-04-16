@@ -8,17 +8,17 @@ $transition-length: 0.5s;
 .mobile-nav-toggle {
 
     .mobile-nav-icon-line {
-        height: 2px;
+        height: 1px;
     }
 
     // when menu toggle is clicked
     &.menu-toggle-active {
 
         .mobile-nav-icon-line {
-            @apply m-0 bg-pink-500;
+            @apply m-0 bg-blue-500;
 
             &:nth-child(1) {
-                transform: rotate(45deg) translateY(3px);
+                transform: rotate(45deg) translateY(2px);
             }
 
             &:nth-child(2) {
@@ -26,7 +26,7 @@ $transition-length: 0.5s;
             }
 
             &:nth-child(3) {
-                transform: rotate(-45deg) translateY(-3px);
+                transform: rotate(-45deg) translateY(-2px);
             }
         }
     }

@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
-
-import json, os
+from pathlib import Path
+import json
 import requests
 
-hospitals_folder = 'site/hospital/'
 
-for filename in os.listdir(hospitals_folder):
-    file_path = os.path.join(hospitals_folder, filename)
-    if os.path.isfile(file_path) and filename != 'readme.md':
-        os.unlink(file_path)
+hospitals_folder = Path('site') / 'hospital'
+if hospitals_folder.exists():
+    for filename in hospitals_folder.iterdir():
+        file_path = hospitals_folder /filename
+        if file_path.is_file() and filename != 'readme.md':
+            file_path.unlink()
+else:
+    hospitals_folder.mkdir()
 
 with open("site/globals/data/hospitals.json") as hospitals_json:
     data = json.load(hospitals_json)
@@ -27,7 +30,8 @@ for record in data["records"]:
 
     front_matter = "\n".join([s.strip() for s in front_matter.splitlines()])
 
-    hospital_file = open(hospitals_folder + name.replace(" ", "-") + ".md", "w+")
-    hospital_file.write(front_matter)
-    hospital_file.close()
+    hospital_file = hospitals_folder / (name.replace(" ", "-") + ".md")
+    with open(hospital_file, 'w') as f:
+        f.write(front_matter)
+
     print("Creating hospital/" + id + " (" + name + ")")

@@ -39,7 +39,7 @@
     {% endif %}
     <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
-	
+
     {# include social meta tags #}
     {% include "components/social-meta.njk" %}
 
@@ -50,25 +50,9 @@
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 </head>
 
-<body {% if body_class %} id="{{ body_class }}"{% endif %} class="text-blue-900 leading-normal text-lg">
+    <body {% if body_class %} id="{{ body_class }}"{% endif %} class="text-blue-900 leading-normal text-lg {% if body_class %}{{ body_class }}{% endif %}">
 
-    <a class="sr-only" href="#main">Skip to content</a>
-
-    <div id="wrapper" class="wrapper flex flex-col relative min-h-screen">
-
-        {# include header #}
-        {% include "components/header.njk" %}
-
-        {# include content #}
         {{ content | safe }}
 
-        {# include footer #}
-        {% include "components/footer.njk" %}
-
-    </div>
-
-    {# include mobile nav #}
-    {% include "components/mobile-nav.njk" %}
-
-</body>
+    </body>
 </html>
