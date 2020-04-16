@@ -38,9 +38,9 @@ title: Meals for the NHS
         <div class="container md:w-4/5 mx-auto justify-center text-center px-4 py-6 md:py-16">
             <h3 class="text-2xl md:text-4xl font-bold mb-6 lg:mb-12">Hospitals we're feeding today</h3>
             <ul class="flex flex-wrap justify-center">
-                {%- for hospital in collections.hospital -%}
+                {%- for hospital in data.hospitals.records -%}
                     <li class="py-2 w-full md:w-1/2 flex p-2">
-                        <a href="{{ hospital.url }}" class="border rounded flex-grow p-4 bg-white hover:bg-blue-200">{{ hospital.data.name }}</a>
+                        <div class="border rounded flex-grow p-4 bg-white hover:bg-blue-200">{{ hospital.fields["Hospital Name"] }}</div>
                     </li>
                 {%- endfor -%}
             </ul>
