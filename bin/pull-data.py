@@ -17,7 +17,7 @@ if not APP_ID or not APP_KEY:
 tables = {
     'Hospitals': {
         'filename': 'hospitals.json',
-        'view': 'Receiving Orders',
+        'view': 'Website data',
         'fields': [
             'Hospital Name', 'Number of orders', 'Total Meals'
         ]
@@ -31,7 +31,7 @@ tables = {
     },
     'Team': {
         'filename': 'team.json',
-        'view': 'On Website',
+        'view': 'Website data',
         'fields': [
             'Name', 'Link', 'Team', 'Bio', 'Picture',
         ]
