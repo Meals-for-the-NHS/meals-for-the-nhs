@@ -15,6 +15,9 @@ pp:
 	@echo "$(BOLD)Creating team...$(RESET)"
 	@python3 ./bin/create-team.py
 	@echo "--------------------------------------------------------"
+	@echo "$(BOLD)Creating campaigns...$(RESET)"
+	@python3 ./bin/create-campaigns.py
+	@echo "--------------------------------------------------------"
 	@echo "meals are ready to roll"
 	@echo "--------------------------------------------------------"
 

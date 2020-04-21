@@ -9,6 +9,14 @@
             "url": "/dashboard/"
         },
         {
+            "label": "Donor Wall",
+            "url": "/donations/"
+        },
+        {
+            "label": "Fundraising",
+            "url": "/campaigns/"
+        },
+        {
             "label": "Team",
             "url": "/team/"
         }
