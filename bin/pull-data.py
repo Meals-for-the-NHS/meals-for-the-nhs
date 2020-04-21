@@ -42,6 +42,13 @@ tables = {
         'fields': [
             'Name', 'Description', 'Goal amount', 'Website', 'Image (uses first)', 'Start date', 'End date'
         ]
+    },
+    'Donors': {
+        'filename': 'donors.json',
+        'view': 'Website data',
+        'fields': [
+            'First Name', 'Amount', 'Donor Comment', 'Donated At'
+        ]
     }
 }
 
