@@ -11,6 +11,10 @@
         {
             "label": "Team",
             "url": "/team/"
+        },
+        {
+            "label": "Fundraising",
+            "url": "/campaigns/"
         }
     ]
 }
