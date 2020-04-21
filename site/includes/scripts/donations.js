@@ -1,5 +1,7 @@
 const donationTemplate = document.querySelector('#donation-template')
+const donationLoader = document.querySelector('#donation-loader')
 donationTemplate.style.display = 'none'
+
 
 fetch('https://europe-west2-meals4nhs.cloudfunctions.net/api/commented-donations')
   .then(r => r.json())
@@ -13,4 +15,5 @@ fetch('https://europe-west2-meals4nhs.cloudfunctions.net/api/commented-donations
       element.style.display = 'flex'
       container.appendChild(element)
     })
+    donationLoader.style.display = 'none'
 })
