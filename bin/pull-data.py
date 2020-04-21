@@ -33,7 +33,14 @@ tables = {
         'filename': 'team.json',
         'view': 'Website data',
         'fields': [
-            'Name', 'Link', 'Team', 'Bio', 'Picture',
+            'Name', 'Link', 'Team', 'Bio', 'Picture'
+        ]
+    },
+    'Fundraising': {
+        'filename': 'fundraising.json',
+        'view': 'Website data',
+        'fields': [
+            'Name', 'Description', 'Goal amount', 'Website', 'Image (uses first)', 'Start date', 'End date'
         ]
     }
 }

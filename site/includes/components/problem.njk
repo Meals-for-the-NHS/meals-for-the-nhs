@@ -1,11 +1,24 @@
-<div class="container md:w-4/5 lg:w-3/4 xl:w-3/5 mx-auto text-center px-4 pt-4 pb-16 lg:pb-24">
-    <h2 class="text-2xl md:text-4xl pb-6">You can’t save the nation on an empty stomach.</h2>
-    <div class="rounded-lg p-4 md:p-8 bg-blue-100 mb-4 md:w-4/5 lg:w-2/3 mx-auto">
-        <p class="text-lg md:text-2xl text-gray-800 pb-4">“At weekends, overnight and evenings there is virtually nothing to eat except a crap vending machine with crisps and chocolate. Seriously!"</p>
-        <p class="text-blue-500 uppercase tracking-wider">UK Consultant Surgeon, <br />Covid-19 ICU Unit, Monday 23rd March 2020</p>
+<div class="container md:w-4/5 lg:w-3/4 xl:w-4/5 mx-auto text-center px-4 pt-4 pb-16 lg:pb-24">
+    <h2 class="text-2xl md:text-4xl pb-4 md:pb-6">You can’t save the nation on an empty stomach.</h2>
+    <div class="flex flex-col md:flex-row">
+        <div class="p-2 md:p-3 w-full lg:w-1/2 mx-auto flex">
+            <div class="rounded-lg p-4 md:p-8 bg-blue-100 flex-grow flex flex-col">
+                <p class="text-lg md:text-2xl text-gray-800 pb-4 flex-grow">"It's saving our life, it's saving our business, our family, and it's helping us keep the money running and the business running for a little while."</p>
+                <p class="text-blue-500 uppercase tracking-wider">Restauranteur</p>
+            </div>
+        </div>
+        <div class="p-2 md:p-3 w-full lg:w-1/2 mx-auto flex">
+            <div class="rounded-lg p-4 md:p-8 bg-blue-100 flex-grow flex flex-col">
+                <p class="text-lg md:text-2xl text-gray-800 pb-4 flex-grow">“At weekends, overnight and evenings there is virtually nothing to eat except a crap vending machine with crisps and chocolate. Seriously!"</p>
+                <p class="text-blue-500 uppercase tracking-wider">UK Consultant Surgeon, <br />Covid-19 ICU Unit, Monday 23rd March 2020</p>
+            </div>
+        </div>
     </div>
     <div class="md:w-4/5 lg:w-2/3 mx-auto">
         <p class="text-lg md:text-xl text-gray-700">We’re giving you the power to directly feed medical staff at local hospitals from your home. You donate meals. We order from local restaurants. Hospital staff eat. Tonight.</p>
+        <div class="pt-4">
+            {% include "components/donation_button.njk" %}
+        </div>
     </div>
 </p>
 </div>
