@@ -20,6 +20,14 @@ title: Donor wall
       <h3 class="text-2xl md:text-4xl font-bold pb-2">{{ data.donors.records | length }} of our donors' messages to our NHS heroes</h3>
       <p class="text-gray-500 pb-4">We'll update messages periodically. Your message won't show up immediately, please bear with us!</p>
     </div>
+    <div class="donations-container">
+      <div id="donation-template" class="">
+      <div class="first_name"></div>
+      <div class="comment"></div>
+      <div class="amount"></div>
+      <div class="date"></div>
+      </div>
+    </div>
     <div class="container md:w-4/5 mx-auto px-4 pb-6 md:pb-16">
         <ul class="flex flex-wrap justify-center">
             {% for campaign in data.donors.records %}
@@ -37,3 +45,6 @@ title: Donor wall
         </ul>
     </div>
 </main>
+<script>
+ {% include "scripts/dashboard.js" %}
+</script>
