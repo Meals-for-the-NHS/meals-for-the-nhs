@@ -10,7 +10,7 @@ fetch('https://europe-west2-meals4nhs.cloudfunctions.net/api/commented-donations
       for (const key in donation) {
         element.querySelector(`.${key}`).innerHTML = donation[key]
       }
-      element.style.display = 'block'
+      element.style.display = 'flex'
       container.appendChild(element)
     })
 })
