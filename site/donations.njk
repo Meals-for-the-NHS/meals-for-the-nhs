@@ -28,7 +28,7 @@ title: Donor wall
                         <div class="p-4 flex flex-col flex-grow">
                             <h4 class="text-gray-600 text-base pb-2">{{ campaign.fields["First Name"] }} gave £{{ campaign.fields["Amount"] | thousands }}</h4>
                             {% if campaign.fields["Donor Comment"] %}
-                                <p class="lg:text-xl xl:text-2xl">{{ campaign.fields["Donor Comment"] | truncate(200) }}</p>
+                                <p class="lg:text-xl xl:text-2xl">{{ campaign.fields["Donor Comment"] | truncate(300) }}</p>
                             {% endif %}
                         </div>
                     </div>
