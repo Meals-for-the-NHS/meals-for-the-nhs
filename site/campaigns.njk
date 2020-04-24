@@ -15,19 +15,19 @@ title: Campaigns
     </div>
     <div class="pb-8 flex flex-col md:flex-row mx-auto md:justify-center">
         <div class="md:px-2 flex justify-center">
-            <a class="dbox-donation-button bg-blue-800 hover:bg-blue-900 transition-all ease-in-out duration-300 py-4 px-6 rounded-lg cursor-pointer text-white text-lg md:text-2xl flex justify-center items-center font-regular border-b-4 border-blue-900" href="/sponsor-a-hospital">
+            <a class="dbox-donation-button bg-blue-800 hover:bg-blue-900 transition-all ease-in-out duration-300 py-4 px-6 rounded-lg cursor-pointer text-white text-lg md:text-2xl flex justify-center items-center font-regular border-b-4 border-blue-900" href="/fundraising">
                 <span class="font-medium">Add your fundraiser</span>
             </a>
         </div>
     </div>
     <div class="container md:w-4/5 mx-auto justify-center text-center px-4 py-6 md:py-16">
-        <h3 class="text-2xl md:text-4xl font-bold pb-2 lg:pb-8">Some of the fundraising campaigns people are running</h3>
+        <h3 class="text-2xl md:text-4xl font-bold pb-2 lg:pb-8">Check out some of the amazing fundraisers below</h3>
         <ul class="flex flex-wrap justify-center">
             {% for campaign in data.fundraising.records %}
                 <li class="w-full md:w-1/2 lg:w-1/4 flex p-2 md:p-3">
-                    <div class="border border-blue-800 rounded-lg flex-grow bg-white flex flex-col mt-12">
-                        <div class="flex justify-center items-center pt-6">
-                            <div class="bg-white bg-cover bg-top pb-20 w-20 rounded-full shadow-2xl -mt-16" style="background-image: url('/images/campaigns/{{ campaign.fields["Name"] | slug }}.png')"></div>
+                    <div class="border border-blue-800 rounded-lg flex-grow bg-white flex flex-col overflow-hidden">
+                        <div class="flex justify-center items-center w-full">
+                            <div class="bg-white bg-cover bg-center pb-golden w-full border-b border-blue-800" style="background-image: url('/images/campaigns/{{ campaign.fields["Name"] | slug }}.png')"></div>
                         </div>
                         <div class="p-4 flex flex-col flex-grow">
                             <h4 class="font-bold pb-2">{{ campaign.fields["Name"] }}</h4>
