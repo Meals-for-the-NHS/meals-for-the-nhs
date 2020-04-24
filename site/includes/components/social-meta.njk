@@ -8,12 +8,12 @@
 <meta name="twitter:description" content="{% if meta_description %}{{ meta_description }}{% else %}{{ excerpt }}{% endif %}">
 <meta name="twitter:site" content="{{ site.author.handle }}">
 <meta name="twitter:creator" content="{{ site.author.handle }}">
-<meta name="twitter:image:src" content="{% if og %}{{ og }}{% else %}{{ site.url }}{{ site.images.og }}{% endif %}">
+<meta name="twitter:image:src" content="{% if og %}{{ site.url }}{{ og }}{% else %}{{ site.url }}{{ site.images.og }}{% endif %}">
 
 {# Open Graph #}
 <meta property="og:title" content="{% if meta_title %}{{ meta_title }}{% else %}{{ title }}{% endif %} | {{ site.name }}">
 <meta property="og:description" content="{% if meta_description %}{{ meta_description }}{% else %}{{ excerpt }}{% endif %}">
-<meta property="og:image" content="{% if og %}{{ og }}{% else %}{{ site.url }}{{ site.images.og }}{% endif %}">
+<meta property="og:image" content="{% if og %}{{ site.url }}{{ og }}{% else %}{{ site.url }}{{ site.images.og }}{% endif %}">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
