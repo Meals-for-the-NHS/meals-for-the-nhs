@@ -7,6 +7,7 @@ site/globals/data/*
 site/hospital/*
 site/team/*
 images/team/*
+images/campaigns/*
 dist/
 css/*.css
 js/*.js

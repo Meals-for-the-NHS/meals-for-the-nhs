@@ -6,7 +6,9 @@
     <div class="pb-8 w-full mx-auto">
         {% include "components/progress_bar.njk" %}
     </div>
-    <iframe allowpaymentrequest="" frameborder="0" height="900px" name="donorbox" scrolling="no" seamless="seamless" src="https://donorbox.org/embed/meals-for-the-nhs-frontline-heroes" style="max-width: 425px; min-width: 310px; max-height:none!important" width="100%"></iframe>
+    {% include "components/donation_form_embed.njk" %}
+</div>
+<div class="pb-16">
+    {% include "components/social-share.njk" %}
 </div>
 
-{% include "components/social-share.njk" %}
