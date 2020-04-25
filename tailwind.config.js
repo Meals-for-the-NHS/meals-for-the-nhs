@@ -22,6 +22,9 @@ module.exports = {
       '0': 0,
       '16': '4rem',
       '1/2': '50%'
+    },
+    fontFamily: {
+      'sans': ['"Segoe UI"', 'Roboto', '"Helvetica Neue"', "Arial", '"Noto Sans"', "sans-serif", '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"']
     }
   },
   variants: {},
