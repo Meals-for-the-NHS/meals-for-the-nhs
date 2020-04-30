@@ -1,0 +1,74 @@
+---
+layout: page
+meta_title: Thank you!
+meta_description: Say thank you together with Meals for the NHS
+title: Recognise The Real Heroes
+theme: dark
+---
+
+<main id="main" class="-mt-1 flex flex-1 h-full flex-col focus:outline-none" tabindex="-1">
+    <div class="bg-black">
+        <div class="">
+            <div class="movie-embed container w-full mx-auto py-5 flex justify-center">
+                <div class="w-full pb-golden overflow-hidden relative">
+                    <div class="absolute w-full h-full" id="ytplayer"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container md:w-4/5 mx-auto px-4 py-6 md:pb-16">
+            <div class="md:w-4/5 lg:w-2/3 mx-auto justify-center text-center pb-8">
+                <h1 class="text-white text-2xl md:text-4xl lg:text-5xl font-bold pb-2 lg:pb-6">{{ title }}</h1>
+                <p class="text-white text-lg md:text-xl mb-2">Say thank you together with Meals for the NHS</p>
+                <p class="text-white text-lg md:text-xl mb-2">While we stay safe at home, others are risking it all.</p>
+                <p class="text-white text-lg md:text-xl mb-2">We want to recognise the real heroes of this pandemic, and thank them any way that we can.</p>
+                <p class="text-white text-lg md:text-xl mb-2">They fight for our lives, working tirelessly and caring continually. So, this is your chance to give a little to those currently giving everything to this country.</p>
+                <p class="text-white text-lg md:text-xl mb-2">With canteens closed after long, late night shifts, NHS staff often can’t get the decent meal they need to keep going.</p>
+                <p class="text-white text-lg md:text-xl mb-2">By pairing local restaurants with over 70 hospitals so far, we’re making sure meals reach frontline workers when they need it most.</p>
+                <p class="text-white text-lg md:text-xl mb-2 font-bold">Say thank you together with Meals for the NHS.</p>
+                {% include 'components/donation_buttons.njk' %}
+            </div>
+        </div>
+        <div class="container md:w-4/5 mx-auto px-4 py-6 md:py-16">
+            <div class="md:w-4/5 lg:w-2/3 mx-auto justify-center text-center pb-8"> 
+                <div class="text-white">
+                    <p class="font-bold text-xl pb-4">Creative Credits</p>
+                    <h4 class="font-bold text-gray-600 pt-4 pb-2">Produced by</h4>
+                    <p class="font-bold">Detail Films</p>
+                    <p>A London-based creative film production company helping brands tell their stories</p>
+                    <a target="_blank" href="https://detailfilms.co.uk" class="text-white underline">detailfilms.co.uk</a> / <a target="_blank" href="https://twitter.com/thatsdetail" class="text-white underline">@thatsdetail</a>
+                    <h4 class="font-bold text-gray-600 pt-4 pb-2">Creative Contributors</h4>
+                    <p>Director - Dylan Drake dylandrake.co.uk</p>
+                    <p>DOP - Will Warr @willwarr</p>
+                    <p>Script - Sarah Mills @scsmills</p>
+                    <p>Sound - Rob Ashton @sndbee</p>
+                    <p>Colour - Nigel Tadyanehondo @nxcolor</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include "components/donation_form.njk" %}
+</main>
+
+<script>
+  // Load the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/player_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // Replace the 'ytplayer' element with an <iframe> and
+  // YouTube player after the API code downloads.
+  var player;
+  function onYouTubePlayerAPIReady() {
+    player = new YT.Player('ytplayer', {
+      height: '360',
+      width: '640',
+      videoId: 'X72Wl7sAYc0',
+      playerVars: {
+          modestBranding: 1,
+          rel: 0,
+          autoplay: 1
+      }
+    });
+  }
+</script>

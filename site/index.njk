@@ -10,18 +10,13 @@ title: Meals for the NHS
     <div class="absolute l-0 r-0 h-24 md:h-32 lg:h-48 w-full bg-blue-800"></div>
     <div class="relative">
         <div class="container flex items-center md:w-4/5 mx-auto justify-center text-center px-4 md:pt-4 md:pb-16">
-            <div class="w-full md:w-1/3 p-2">
-                <div class="rounded bg-top md:bg-center bg-cover bg-no-repeat pb-half md:pb-twothirds w-full shadow-2xl" style="background-image: url('/images/photos/order-1.jpg')"></div>
-            </div>
-            <div class="hidden md:block w-1/3 p-2">
-                <div class="rounded bg-center bg-cover bg-no-repeat pb-square w-full shadow-2xl" style="background-image: url('/images/photos/order-2.jpg')"></div>
-            </div>
-            <div class="hidden md:block w-1/3 p-2">
-                <div class="rounded bg-center bg-cover bg-no-repeat pb-twothirds w-full shadow-2xl" style="background-image: url('/images/photos/order-3.jpg')"></div>
+            <div class="w-full md:w-1/2 p-2">
+                <a href="/film" class="block rounded bg-top md:bg-center bg-blue-900 bg-cover bg-no-repeat pb-golden w-full shadow-2xl relative" style="background-image: url('/images/campaigns/film.jpg')">
+                    <div class="absolute top-half left-half -mt-8 -ml-8 w-16 h-16 rounded-full bg-blue-600 border-2 border-blue-800 shadow-2xl flex justify-center items-center"><div class="ml-1 h-8 w-8 bg-no-repeat bg-contain" style="background-image: url('/images/icons/play.svg')"></div></div>
+                </a>
             </div>
         </div>
     </div>
-    {% include 'components/mdn-banner.njk' %}
     <div class="container md:w-4/5 lg:w-3/4 xl:w-1/2 mx-auto text-center px-4 pt-4 py-6 md:pb-16 lg:pb-24">
         <h1 class="text-3xl md:text-5xl pb-3 md:pb-6">Help buy meals for the NHS staff fighting COVID-19</h1>
         <p class="text-lg md:text-2xl text-gray-700 pb-4">After 18-hour shifts trying to save our lives from COVID-19, NHS Hospital Staff are faced with canteens that shut at 5pm.</p>
@@ -31,6 +26,7 @@ title: Meals for the NHS
     </div>
     {% include "components/problem.njk" %}
     {% include "components/endorsements.njk" %}
+    {% include 'components/mdn-banner.njk' %}
     {% include "components/tweets.njk" %}
     {% include "components/donation_form.njk" %}
     {% include "components/team.njk" %}
