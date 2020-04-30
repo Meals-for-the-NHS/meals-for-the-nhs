@@ -1,4 +1,4 @@
-<header id="header" class="header bg-blue-800 flex justify-between items-center h-12 md:h-16 px-4">
+<header id="header" class="header bg-{% if theme == "dark" %}black{% else %}blue-800{% endif %} flex justify-between items-center h-12 md:h-16 px-4">
 
 	{% include "components/logo.njk" %}
 	{% include 'components/nav.njk' %}
