@@ -1,19 +1,19 @@
 <!doctype html>
 <html lang="en" class="min-h-full antialiased">
 <head>
-    <script src="https://config.metomic.io/config.js?id=prj:d12aea0b-775d-4edd-be86-1d00e4daa36c" crossorigin charset="utf-8"></script>
-    <script src="https://consent-manager.metomic.io/embed.js" crossorigin charset="utf-8"></script>
     {% if helpers.environment != "development" %}
+        <script src="https://config.metomic.io/config.js?id=prj:d12aea0b-775d-4edd-be86-1d00e4daa36c" crossorigin charset="utf-8"></script>
+        <script src="https://consent-manager.metomic.io/embed.js" crossorigin charset="utf-8"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162009579-1"></script>
         <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-162009579-1');
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-162009579-1');
+        </script>
     {% endif %}
 
-    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if meta_title %}{{ meta_title }}{% else %}{{ title }}{% endif %} | {{ site.name }}</title>
