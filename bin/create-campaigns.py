@@ -9,7 +9,7 @@ with open("site/globals/data/fundraising.json") as campaigns_json:
 for record in data["records"]:
     name = record["fields"]["Name"]
     image = record["fields"]["Image (uses first)"][0]["thumbnails"]["large"]["url"]
-    image_url = (name.replace(" ", "-") + '.png').lower()
+    image_url = (name.strip().replace(" ", "-") + '.png').lower()
     filepath = Path('images') / 'campaigns' / image_url.lower()
 
     if not filepath.exists():
