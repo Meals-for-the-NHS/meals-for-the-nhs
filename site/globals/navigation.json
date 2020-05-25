@@ -1,16 +1,20 @@
 {
     "main": [
         {
-            "label": "Home",
-            "url": "/"
+            "label": "💙 NHS",
+            "url": "/nhs"
         },
         {
-            "label": "Impact",
-            "url": "/dashboard/"
+            "label": "👩‍🍳 Meals",
+            "url": "/meals"
         },
         {
-            "label": "Fundraise for us",
-            "url": "/campaigns/"
+            "label": "🙏 Donors",
+            "url": "/donations"
+        },
+        {
+            "label": "About Us",
+            "url": "/about-us"
         }
     ]
 }

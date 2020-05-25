@@ -1,0 +1,107 @@
+---
+layout: page
+meta_title: 💙 The NHS
+meta_description: Love The NHS
+body_class: love
+title: Meals for the NHS
+---
+
+{% from "components/feature_blocks.njk" import featureQuote %}
+
+<main id="main" class="main flex flex-1 h-full flex-col focus:outline-none" tabindex="-1">
+
+    <div class="container md:w-4/5 mx-auto px-4 py-6 md:pv-16">
+        <div class="flex flex-wrap pb-4">
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="bg-gray-200 border rounded p-4 flex flex-col justify-center h-full">
+                    <div class="text-gray-600">Meals eaten</div>
+                    <div class="text-2xl font-bold">
+                        {{ data.summary.num_meals_delivered | thousands }}
+                    </div>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="bg-gray-200 border rounded p-4 flex flex-col justify-center h-full">
+                    <div class="text-gray-600">Total hospitals fed</div>
+                    <div class="text-2xl font-bold">
+                        {{ data.summary.num_hospitals_received }}
+                    </div>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="bg-gray-200 border rounded p-4 flex flex-col justify-center h-full">
+                    <div class="text-gray-600">NHS staff fed last&nbsp;night</div>
+                    <div class="text-2xl font-bold">
+                        TODO
+                    </div>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="bg-gray-200 border rounded p-4 flex flex-col justify-center h-full">
+                    <div class="text-gray-600">Hospital waiting&nbsp;list</div>
+                    <div class="text-2xl font-bold">
+                        TODO
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ featureQuote(
+        "It’s becoming a real struggle, every shift is a major incident now! Your meals are an absolute godsend",
+        "Sister, Acute Medical Unit, University College Hospital") }}
+
+    {{ featureQuote(
+        "Food always makes nurses happy. But at a time like this it makes us feel like we have won the lottery.",
+        "Sister, Acute Medical Unit, University College Hospital",
+        "/images/photos/photo-1.jpg", true) }}
+
+    {{ featureQuote(
+        "It’s becoming a real struggle, every shift is a major incident now! Your meals are an absolute godsend",
+        "Sister, Acute Medical Unit, University College Hospital",
+        "/images/photos/photo-2.jpg") }}
+
+    {{ featureQuote(
+        "As soon as you get that tight mask and gown off… to know you are sitting down to have that lovely meal makes such a difference.",
+        "Sister, Acute Medical Unit, University College Hospital",
+        "/images/photos/photo-3.jpg", true) }}
+
+    {{ featureQuote(
+        "I just wanted to say thanks from the bottom of my heart.",
+        "Norfolk and Norwich University Hospital") }}
+
+    <div class="container md:w-4/5 mx-auto px-4 py-6 md:pb-16">
+        <h2 class="text-2xl md:text-4xl font-bold pb-2">How does it work?</h2>
+        <div class="flex flex-wrap pb-4">
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="rounded bg-pink-800 p-4 flex flex-col h-full">
+                    <span class="text-4xl text-white">1.</span>
+                    <span class="text-l text-white">You donate</span>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="rounded bg-pink-800 p-4 flex flex-col h-full">
+                    <span class="text-4xl text-white">2.</span>
+                    <span class="text-l text-white">We sign up hospitals</span>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="rounded bg-pink-800 p-4 flex flex-col h-full">
+                    <span class="text-4xl text-white">3.</span>
+                    <span class="text-l text-white">We select local restaurants</span>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="rounded bg-pink-800 p-4 flex flex-col h-full">
+                    <span class="text-4xl text-white">4.</span>
+                    <span class="text-l text-white">We place orders and food is delivered!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "components/food_safety_section.njk" %}
+
+</main>
+
+<script src="https://donorbox.org/widget.js" paypalExpress="false"></script>

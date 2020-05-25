@@ -1,0 +1,54 @@
+
+{% macro centreQuote(quote, attribution) %}
+<div class="container md:w-4/5 mx-auto px-4 py-6 flex flex-col-reverse flex-row">
+    <div class="w-full px-6 text-center">
+        <blockquote class="pb-4 leading-snug text-xl lg:text-3xl">
+            <span class="text-gray-600">“</span>
+            {{quote}}
+            <span class="text-gray-600">”</span>
+        </blockquote>
+        <abbr class="text-lg pb-4 opacity-75">
+            {{attribution}}
+        </abbr>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro featureQuote(quote, attribution, imageSrc, reverse) %}
+<div class="container md:w-4/5 mx-auto px-4 py-6 flex flex-col {% if reverse %}md:flex-row-reverse{% else %}md:flex-row{% endif %} md:items-center">
+    <div class="w-full {% if imageSrc %}md:w-3/5{% endif %} px-6 flex flex-col justify-center">
+        <blockquote class="pb-4 leading-snug text-xl lg:text-3xl {% if reverse %}text-right{% endif %}">
+            <span class="text-gray-600">“</span>
+            {{quote}}
+            <span class="text-gray-600">”</span>
+        </blockquote>
+        <abbr class="text-lg pb-4 opacity-75 text-right">
+            {{attribution}}
+        </abbr>
+    </div>
+    {% if imageSrc %}
+    <div class="w-full md:w-2/5 lg:pl-4">
+        <img class="object-cover w-full rounded" src="{{imageSrc}}" />
+    </div>
+    {% endif %}
+</div>
+{% endmacro %}
+
+{% macro caseStudy(title, caption, attribution, imageSrc, reverse) %}
+<div class="container md:w-4/5 mx-auto px-4 py-6 flex flex-col {% if reverse %}md:flex-row-reverse{% else %}md:flex-row{% endif %} md:items-center">
+    <div class="w-full {% if imageSrc %}md:w-3/4{% endif %} px-6 flex flex-col justify-center">
+        <h3 class="text-xl lg:text-3xl pb-4 leading-snug">
+            {{title}}
+        </h3>
+        <blockquote>{{caption | safe}}</blockquote>
+        <attr class="text-lg pb-4 opacity-75 text-right">
+            {{attribution}}
+        </attr>
+    </div>
+    {% if imageSrc %}
+    <div class="w-full md:w-1/4 lg:pl-4">
+        <img class="object-cover w-full rounded" src="{{imageSrc}}" alt="photo of {{attribution}}" />
+    </div>
+    {% endif %}
+</div>
+{% endmacro %}

@@ -1,0 +1,204 @@
+---
+layout: page
+meta_title: About Us
+meta_description: Learn more about us
+body_class: about
+title: Meals for the NHS
+---
+
+{% from "components/feature_blocks.njk" import centreQuote, featureQuote,
+caseStudy %}
+
+<main id="main" class="main flex flex-1 h-full flex-col focus:outline-none" tabindex="-1">
+
+    <div class="container md:w-4/5 mx-auto px-4 py-6 md:pv-16">
+        <div class="flex flex-wrap justify-center">
+            <div class="w-full sm:w-1/2 lg:w-1/3 text-center p-2">
+                <div class="bg-gray-200 border rounded p-4 flex flex-col justify-center h-full">
+                    <div class="text-gray-600">Days since we launched</div>
+                    <div class="text-2xl font-bold">
+                        TODO
+                    </div>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/3 text-center p-2">
+                <div class="bg-gray-200 border rounded p-4 flex flex-col justify-center h-full">
+                    <div class="text-gray-600">People who have Volunteered</div>
+                    <div class="text-2xl font-bold">
+                        TODO
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ centreQuote(
+        "We are no longer just The NHS. We are The NHS Family. And Meals For The NHS is definitely a part of that family.") }}
+
+    <div class="container md:w-4/5 mx-auto px-4 py-6 md:pb-16">
+        <p class="text-lg md:text-xl text-gray-700 pb-4">
+            Our Story...
+        </p>
+        <p class="text-lg md:text-xl text-gray-700 pb-4">
+            Meals for the NHS started off as a few friends who wanted to help our local hospital. We addressed a specific problem of a lack of access to meals for NHS staff outside working hours. We deliver meals directly to the front line effortlessly - with all the food coming from local food providers who need cash lifelines to survive the economic fallouts of COVID-19. 
+        </p>
+        <p class="text-lg pb-4 opacity-75 text-right">
+            Meals for the NHS Team
+        </p>
+    </div>
+
+    <div class="container md:w-4/5 mx-auto px-4 py-6 md:pb-16">
+        <h2 class="text-2xl md:text-4xl font-bold pb-2 text-center">Our 5 Principles</h2>
+
+        <ol class="flex flex-wrap pb-4">
+            <li class="w-full lg:w-1/2 p-2">
+                <h3>1. Move Fast, Help Now</h3>
+                <p>NHS hospital staff need help yesterday. If there’s a scrappy way to get meals to them quicker, we do it.</p>
+            </li>
+            <li class="w-full lg:w-1/2 p-2">
+                <h3>2. Effortless for NHS staff</h3>
+                <p>They are saving lives, let’s make this magically simple for them. We should make getting dinner as easy as sending a text.</p>
+            </li>
+            <li class="w-full lg:w-1/2 p-2">
+                <h3>3. Help local restaurants</h3>
+                <p>We give local people and local restaurants a way to support the staff saving their neighbours’ lives.</p>
+            </li>
+            <li class="w-full lg:w-1/2 p-2">
+                <h3>4. Listen, learn and adapt</h3>
+                <p>Do they need halal? Vegan? Chocolate biscuits? We listen, learn and adapt - regardless of the challenge.</p>
+            </li>
+            <li class="w-full lg:w-1/2 p-2">
+                <h3>5. We're not precious</h3>
+                <p>If we see a chance to collaborate, share, contribute to any other work we can help with, we will, with open arms.</p>
+            </li>
+        </ol>
+    </div>
+
+    <div class="container md:w-4/5 mx-auto px-4 py-6 md:pb-16">
+        <h2 class="text-2xl text-center md:text-4xl font-bold pb-2">Our 100% Donation Model</h2>
+        <p class="text-lg text-center md:text-xl text-gray-700 pb-4">
+            Meals for the NHS uniquely runs a 100% model - all donations go directly to funding our meals (food, delivery and payments processing for website donations only).
+        </p>
+    </div>
+
+    <div class="container md:w-4/5 mx-auto px-4 py-6 flex flex-col-reverse md:flex-row md:pb-16">
+        <div class="w-full md:w-1/2 lg:pl-4">
+            <img class="object-cover w-full rounded" src="//placekitten.com/g/640/420">
+        </div>
+        <div class="w-full md:w-1/2 px-6 pb-4">
+            <h2 class="text-xl lg:text-3xl pb-4 leading-snug">
+                We're a Registered Non-For-Profit
+            </h2>
+            <p class="pb-4">We're registered as a Company Limited by Guarantee operating on a non-for profit basis.</p>
+
+            <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 rounded cursor-pointer text-xl leading-tight inline-block" href="/team">
+                Find out more
+            </a>
+        </div>
+    </div>
+
+    <div class="container md:w-4/5 mx-auto px-4 py-6 flex flex-col md:flex-row">
+        <div class="w-full md:w-3/5 px-6">
+            <h2 class="text-xl lg:text-3xl pb-4 leading-snug">
+                About Our Team
+            </h2>
+            <p class="pb-4">
+                This all started with a small group of friends, but delivering hundreds of thousands of meals needed help. We now have a small army of incredibly talented and experienced operators, tech and process geeks and logistics experts from companies including Deliveroo, Uber, Monzo, Spotify, Google, McKinsey and many more, all giving their time.
+            </p>
+            <p class="pb-4">
+                Together we're working out how to spend your donations in the best possible way to get food to NHS staff.
+            </p>
+
+            <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 mb-4 mr-4 rounded cursor-pointer text-xl leading-tight inline-block" href="/volunteers">
+                Offer to Volunteer
+            </a>
+            <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 rounded cursor-pointer text-xl leading-tight inline-block" href="/team">
+                About our team
+            </a>
+        </div>
+        <div class="w-full md:w-2/5 lg:pl-4">
+            <ul class="flex flex-wrap mx-auto justify-center py-4">
+                {% for teamMember in data.team.records %}
+                    <li class="-mx-1">
+                        <div class="flex justify-center items-center pt-6">
+                            <div class="bg-cover bg-top pb-12 w-12 rounded-full shadow-2xl -mt-8" style="background-image: url('/images/team/{{ teamMember.fields["Name"] | slug }}.png')"></div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="container md:w-4/5 mx-auto px-4 py-6 md:pb-16">
+        <h2 class="text-2xl text-center md:text-4xl font-bold pb-2" id="food-safety">Feeding the NHS Safely</h2>
+        <h3 class="text-xl text-center md:text-2xl font-bold pb-2">8 Key Points from our Food Safety Guidelines</h3>
+        <p class="text-lg text-center md:text-xl text-gray-700 mb-8">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        </p>
+
+        <ol class="flex flex-wrap pb-4">
+            <li class="w-full lg:w-1/3 p-2">
+                <h3>5⭐️ or 4⭐️ only</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </li>
+            <li class="w-full lg:w-1/3 p-2">
+                <h3>Allergen Labels must</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </li>
+            <li class="w-full lg:w-1/3 p-2">
+                <h3>Handle with care</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </li>
+            <li class="w-full lg:w-1/3 p-2">
+                <h3>Eat within time</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </li>
+            <li class="w-full lg:w-1/3 p-2">
+                <h3>Individually Wrapped</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </li>
+            <li class="w-full lg:w-1/3 p-2">
+                <h3>Lorem ipsum</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </li>
+            <li class="w-full lg:w-1/3 p-2">
+                <h3>Lorem ipsum</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </li>
+            <li class="w-full lg:w-1/3 p-2">
+                <h3>Lorem ipsum</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </li>
+        </ol>
+        <div class="flex justify-center">
+            <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 rounded cursor-pointer text-xl leading-tight inline-block" href="/team">
+                Our full Food Safety Guidelines
+            </a>
+        </div>
+    </div>
+
+    <div class="container md:w-4/5 mx-auto px-4 py-6 md:pb-16">
+        <h2 class="text-2xl md:text-4xl font-bold pb-2">Our Partners</h2>
+
+        <ul class="flex flex-wrap items-center pb-4">
+            <li class="w-1/2 md:w-1/3 p-10">
+                <img src="/images/partners/silicon-valley-bank.svg" class="fill-current" alt="Silicon Valley Bank logo">
+            </li>
+            <li class="w-1/2 md:w-1/3 p-10">
+                <img src="/images/partners/vcmt.svg" class="fill-current" alt="Silicon Valley Bank logo">
+            </li>
+            <li class="w-1/2 md:w-1/3 p-10">
+                <img src="/images/partners/mishcon-de-reya.svg" class="fill-current" alt="Silicon Valley Bank logo">
+            </li>
+            <li class="w-1/2 md:w-1/3 p-10">
+                <img src="/images/partners/portland.svg" class="fill-current" alt="Silicon Valley Bank logo">
+            </li>
+            <li class="w-1/2 md:w-1/3 p-10">
+                <img src="/images/partners/pwc.svg" class="fill-current" alt="Silicon Valley Bank logo">
+            </li>
+        </ul>
+    </div>
+
+</main>
+
+<script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
