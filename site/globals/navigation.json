@@ -5,20 +5,12 @@
             "url": "/"
         },
         {
-            "label": "Dashboard",
+            "label": "Impact",
             "url": "/dashboard/"
         },
         {
-            "label": "Donor Wall",
-            "url": "/donations/"
-        },
-        {
-            "label": "Fundraising",
+            "label": "Fundraise for us",
             "url": "/campaigns/"
-        },
-        {
-            "label": "Team",
-            "url": "/team/"
         }
     ]
 }

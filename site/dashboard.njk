@@ -1,6 +1,6 @@
 ---
 layout: dashboard
-meta_title: Live Dashboard
+meta_title: Impact
 meta_description: What's happening right now?
 body_class: absolute h-full w-full overflow-hidden
 title: Meals for the NHS
@@ -79,6 +79,23 @@ title: Meals for the NHS
 								</div>
 							</li>
 						{% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="w-full text-center p-2">
+                <div class="border rounded p-4 flex flex-col h-full">
+                    <div class="text-xl text-gray-500">Hospitals fed</div>
+                    <div class="text-4xl font-bold">
+                        {{ data.summary.num_hospitals_received }}
+                    </div>
+                    <ul class="flex flex-wrap justify-center pt-3">
+                        {% for hospital in data.hospitals.records %}
+                            <li class="p-2">
+                                <div class="bg-blue-100 rounded py-1 px-2 text-lg text-blue-800">
+                                    {{ hospital.fields["Hospital Name"] }}
+                                </div>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
