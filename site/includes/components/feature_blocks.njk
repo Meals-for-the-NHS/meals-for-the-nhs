@@ -40,7 +40,11 @@
         <h3 class="text-xl lg:text-3xl pb-4 leading-snug">
             {{title}}
         </h3>
-        <blockquote>{{caption | safe}}</blockquote>
+        <blockquote>
+            <span class="text-gray-600">“</span>
+            {{caption | safe}}
+            <span class="text-gray-600">”</span>
+        </blockquote>
         <attr class="text-lg pb-4 opacity-75 text-right">
             {{attribution}}
         </attr>
