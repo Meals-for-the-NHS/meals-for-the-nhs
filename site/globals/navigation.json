@@ -13,6 +13,10 @@
             "url": "/donations"
         },
         {
+            "label": "✊ Impact",
+            "url": "/dashboard"
+        },
+        {
             "label": "About Us",
             "url": "/about-us"
         }
