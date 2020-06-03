@@ -10,8 +10,29 @@ title: Meals for the NHS
 caseStudy %}
 
 <main id="main" class="main flex flex-1 h-full flex-col focus:outline-none" tabindex="-1">
+    <div class="container md:w-4/5 mx-auto justify-center text-center px-4 pt-6 md:pt-16">
+        <div class="md:w-4/5 lg:w-2/3 mx-auto justify-center text-center">
+            <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold pb-2 lg:pb-6">About Us</h1>
+        </div>
+    </div>
 
-    <div class="container md:w-4/5 mx-auto px-4 py-6 md:pv-16">
+    {{ centreQuote(
+        "We are no longer just The NHS. We are The NHS Family. And Meals For The NHS is definitely a part of that family.") }}
+
+    <div class="container md:w-4/5 mx-auto px-4 pt-6">
+        <h2 class="text-2xl md:text-4xl font-bold pb-2 text-center">
+            Our Story
+        </h2>
+        <p class="text-lg md:text-xl text-gray-700 pb-4">
+            It began back in March 2020 when a few friends desperately wanted to help their local hospitals. They’d heard that at the end of long shifts battling COVID-19, frontline NHS staff were faced with the disheartening sight of closed canteens and nothing to eat.
+        </p>
+        <p class="text-lg md:text-xl text-gray-700 pb-4">
+            A few phone calls later, and our first delivery was made to the Whittington Hospital on 23rd March. From then on, we set out to sign up hospitals who needed our help, and find the volunteers and funds to make it happen. We knew local restaurants needed a lifeline too to survive the economic fallout of COVID-19, so we onboarded small businesses where these deliveries could make a big impact and together. We got to work delivering Meals for the NHS.
+        </p>
+
+    </div>
+
+    <div class="container md:w-4/5 mx-auto px-4 py-6 md:pb-16">
         <div class="flex flex-wrap justify-center">
             <div class="w-full sm:w-1/2 lg:w-1/3 text-center p-2">
                 <div class="bg-gray-200 border rounded p-4 flex flex-col justify-center h-full">
@@ -23,7 +44,7 @@ caseStudy %}
             </div>
             <div class="w-full sm:w-1/2 lg:w-1/3 text-center p-2">
                 <div class="bg-gray-200 border rounded p-4 flex flex-col justify-center h-full">
-                    <div class="text-gray-600">People who have Volunteered</div>
+                    <div class="text-gray-600">Volunteers</div>
                     <div class="text-2xl font-bold">
                         94
                     </div>
@@ -32,45 +53,72 @@ caseStudy %}
         </div>
     </div>
 
-    {{ centreQuote(
-        "We are no longer just The NHS. We are The NHS Family. And Meals For The NHS is definitely a part of that family.") }}
+    <div class="container  md:w-4/5 mx-auto px-4 pt-6 pb-16">
+        <h2 class="text-2xl md:text-4xl font-bold pb-2 text-center">
+            Our Volunteer Team
+        </h2>
+        <div class="container mx-auto py-6 flex flex-col md:flex-row">
+            <div class="w-full md:w-3/5 pr-6">
+                <p class="pb-4">
+                    This all started with a small group of friends, but delivering hundreds of thousands of meals needed help. We now have a small army of incredibly talented and experienced operators, tech and process geeks and logistics experts from companies including Deliveroo, Uber, Monzo, Spotify, Google, McKinsey and many more, all giving their time.
+                </p>
+                <p class="pb-4">
+                    Together we're working out how to spend your donations in the best possible way to get food to NHS staff.
+                </p>
+
+                <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 mb-4 mr-4 rounded cursor-pointer text-xl leading-tight inline-block" href="/team">
+                    Who we are
+                </a>
+                <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 rounded cursor-pointer text-xl leading-tight inline-block" href="/volunteers">
+                    Offer to volunteer
+                </a>
+
+            </div>
+            <div class="w-full md:w-2/5 lg:pl-4">
+                <ul class="flex flex-wrap mx-auto justify-center py-4">
+                    {% for teamMember in data.team.records %}
+                        <li class="-mx-1">
+                            <div class="flex justify-center items-center pt-6">
+                                <div class="bg-cover bg-top pb-12 w-12 rounded-full shadow-2xl -mt-8" style="background-image: url('/images/team/{{ teamMember.fields["Name"] | slug }}.png')"></div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <div class="container md:w-4/5 mx-auto px-4 py-6 md:pb-16">
-        <p class="text-lg md:text-xl text-gray-700 pb-4">
-            Our Story...
+        <h2 class="text-2xl text-center md:text-4xl font-bold pb-2">Our 100% Donation Model</h2>
+        <p class="pb-4">
+            Meals for the NHS uniquely runs a 100% model. All donations go only to direct costs for meals for NHS staff &mdash; food, delivery and payments processing for website donations.
         </p>
-        <p class="text-lg md:text-xl text-gray-700 pb-4">
-            It began back in March 2020 when a few friends desperately wanted to help their local hospitals. They’d heard that at the end of long shifts battling COVID-19, frontline NHS staff were faced with the disheartening sight of closed canteens and nothing to eat.
-        </p>
-        <p class="text-lg md:text-xl text-gray-700 pb-4">
-            A few phone calls later, and our first delivery was made to the Whittington Hospital on 23rd March. From then on, we set out to sign up hospitals who needed our help, and find the volunteers and funds to make it happen. We knew local restaurants needed a lifeline too to survive the economic fallout of COVID-19, so we onboarded small businesses where these deliveries could make a big impact and together, we got to work delivering Meals for the NHS.
-        </p>
-        <p class="text-lg pb-4 opacity-75 text-right">
-            Meals for the NHS Team
+        <p class="pb-4">
+            We are registered as a Company Limited by Guarantee operating on a non-for profit basis.
         </p>
     </div>
 
     <div class="container md:w-4/5 mx-auto px-4 py-6 md:pb-16">
         <h2 class="text-2xl md:text-4xl font-bold pb-2 text-center">Our 5 Principles</h2>
 
-        <ol class="flex flex-wrap justify-center pb-4">
-            <li class="w-full lg:w-1/2 p-4 md:p-6">
+        <ol class="flex flex-wrap justify-center">
+            <li class="w-full p-3 max-w-3xl mx-auto">
                 <h3>1. Move Fast, Help Now</h3>
                 <p>NHS hospital staff need help yesterday. If there’s a scrappy way to get meals to them quicker, we do it.</p>
             </li>
-            <li class="w-full lg:w-1/2 p-4 md:p-6">
+            <li class="w-full p-3 max-w-3xl mx-auto">
                 <h3>2. Effortless for NHS staff</h3>
                 <p>They are saving lives, let’s make this magically simple for them. We should make getting dinner as easy as sending a text.</p>
             </li>
-            <li class="w-full lg:w-1/2 p-4 md:p-6">
+            <li class="w-full p-3 max-w-3xl mx-auto">
                 <h3>3. Help local restaurants</h3>
                 <p>We give local people and local restaurants a way to support the staff saving their neighbours’ lives.</p>
             </li>
-            <li class="w-full lg:w-1/2 p-4 md:p-6">
+            <li class="w-full p-3 max-w-3xl mx-auto">
                 <h3>4. Listen, learn and adapt</h3>
                 <p>Do they need halal? Vegan? Chocolate biscuits? We listen, learn and adapt - regardless of the challenge.</p>
             </li>
-            <li class="w-full lg:w-1/2 p-2">
+            <li class="w-full p-3 max-w-3xl mx-auto">
                 <h3>5. We're not precious</h3>
                 <p>If we see a chance to collaborate, share, contribute to any other work we can help with, we will, with open arms.</p>
             </li>
@@ -78,56 +126,14 @@ caseStudy %}
     </div>
 
     <div class="container md:w-4/5 mx-auto px-4 py-6 md:pb-16">
-        <h2 class="text-2xl text-center md:text-4xl font-bold pb-2">Our 100% Donation Model</h2>
-        <p class="text-lg text-center md:text-xl text-gray-700 pb-4">
-            Meals for the NHS uniquely runs a 100% model - all donations go directly to funding our meals (food, delivery and payments processing for website donations only).
-        </p>
-        <p class="text-lg text-center md:text-xl text-gray-700 pb-4">
-            We're registered as a Company Limited by Guarantee operating on a non-for profit basis.
-        </p>
-    </div>
-
-    <div class="container md:w-4/5 mx-auto px-4 py-6 flex flex-col md:flex-row">
-        <div class="w-full md:w-3/5 px-6">
-            <h2 class="text-xl lg:text-3xl pb-4 leading-snug">
-                About Our Team
-            </h2>
-            <p class="pb-4">
-                This all started with a small group of friends, but delivering hundreds of thousands of meals needed help. We now have a small army of incredibly talented and experienced operators, tech and process geeks and logistics experts from companies including Deliveroo, Uber, Monzo, Spotify, Google, McKinsey and many more, all giving their time.
-            </p>
-            <p class="pb-4">
-                Together we're working out how to spend your donations in the best possible way to get food to NHS staff.
-            </p>
-
-            <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 mb-4 mr-4 rounded cursor-pointer text-xl leading-tight inline-block" href="/volunteers">
-                Offer to Volunteer
-            </a>
-            <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 rounded cursor-pointer text-xl leading-tight inline-block" href="/team">
-                About our team
-            </a>
-        </div>
-        <div class="w-full md:w-2/5 lg:pl-4">
-            <ul class="flex flex-wrap mx-auto justify-center py-4">
-                {% for teamMember in data.team.records %}
-                    <li class="-mx-1">
-                        <div class="flex justify-center items-center pt-6">
-                            <div class="bg-cover bg-top pb-12 w-12 rounded-full shadow-2xl -mt-8" style="background-image: url('/images/team/{{ teamMember.fields["Name"] | slug }}.png')"></div>
-                        </div>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-
-    <div class="container md:w-4/5 mx-auto px-4 py-6 md:pb-16">
         <h2 class="text-2xl text-center md:text-4xl font-bold pb-2" id="food-safety">Feeding the NHS Safely</h2>
-        <p class="text-lg text-center md:text-xl text-gray-700 mb-8">
-            We take food safety seriously. Quite simply - we care about the NHS workers we are feeding and we care about showing our appreciation for them - in a way that helps them, not harms them. We have developed comprehensive food safety guidelines for both our hospitals and our food providers.
+        <p class="mb-8">
+            We take food safety seriously. We care about the NHS workers we are feeding and we care about showing our appreciation for them &mdash; in a way that helps them, not harms them. We have developed comprehensive food safety guidelines for both our hospitals and our food providers.
         </p>
 
         <div class="flex justify-center">
             <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 rounded cursor-pointer text-xl leading-tight inline-block" href="https://drive.google.com/open?id=1yoLUMgbjHPhpjxCMrADqlo-7r-Rwh8S1" target="_blank">
-                Our full Food Safety Guidelines
+                Read our full food safety guidelines
             </a>
         </div>
     </div>
@@ -136,16 +142,16 @@ caseStudy %}
         <h2 class="text-2xl md:text-4xl font-bold pb-2">Our Partners</h2>
 
         <ul class="flex flex-wrap items-center justify-center pb-4">
-            <li class="w-1/2 md:w-1/3 p-10">
+            <li class="w-1/2 sm:w-1/3 lg:w-1/4 p-10">
                 <img src="/images/partners/silicon-valley-bank.svg" class="fill-current" alt="Silicon Valley Bank logo">
             </li>
-            <li class="w-1/2 md:w-1/3 p-10">
+            <li class="w-1/2 sm:w-1/3 lg:w-1/4 p-10">
                 <img src="/images/partners/mishcon-de-reya.svg" class="fill-current" alt="Silicon Valley Bank logo">
             </li>
-            <li class="w-1/2 md:w-1/3 p-10">
+            <li class="w-1/2 sm:w-1/3 lg:w-1/4 p-10">
                 <img src="/images/partners/portland.svg" class="fill-current" alt="Silicon Valley Bank logo">
             </li>
-            <li class="w-1/2 md:w-1/3 p-10">
+            <li class="w-1/2 sm:w-1/3 lg:w-1/4 p-10">
                 <img src="/images/partners/pwc.svg" class="fill-current" alt="Silicon Valley Bank logo">
             </li>
         </ul>
