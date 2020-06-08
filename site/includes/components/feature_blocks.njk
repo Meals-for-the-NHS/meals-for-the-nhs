@@ -37,7 +37,7 @@
 {% macro caseStudy(quote, attribution, org, imageSrc, reverse) %}
 <div class="container md:w-4/5 mx-auto px-4 py-6 flex flex-col {% if reverse %}md:flex-row-reverse{% else %}md:flex-row{% endif %} md:items-center">
     <div class="w-full {% if imageSrc %}md:w-3/4{% endif %} px-6 flex flex-col justify-center">
-        <blockquote class=" text-md lg:text-2xl">
+        <blockquote class=" text-md lg:text-xl">
             <span class="text-gray-600">“</span>
             {{quote | safe}}
             <span class="text-gray-600">”</span>
