@@ -43,7 +43,7 @@
             <span class="text-gray-600">”</span>
         </blockquote>
         <attr class="text-lg pb-4 opacity-75 text-right">
-            {{attribution}}<br />{{org}}
+            {% if attribution %}{{attribution}}<br />{% endif %}{{org}}
         </attr>
     </div>
     {% if imageSrc %}
