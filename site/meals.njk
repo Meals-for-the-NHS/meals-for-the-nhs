@@ -1,0 +1,136 @@
+---
+layout: page
+meta_title: Meals
+meta_description: Meals
+body_class: meals
+title: Meals for the NHS
+---
+
+{% from "components/feature_blocks.njk" import centreQuote, featureQuote, caseStudy %}
+
+<main id="main" class="main flex flex-1 h-full flex-col focus:outline-none" tabindex="-1">
+    <div class="container md:w-4/5 mx-auto justify-center text-center px-4 pt-6 md:pt-16">
+        <div class="md:w-4/5 lg:w-2/3 mx-auto justify-center text-center">
+            <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold pb-2 lg:pb-6">We support food providers</h1>
+            <p class="text-lg md:text-xl text-gray-700 pb-4">In lockdown, we found a way to keep local and family businesses going by  also helping the NHS.</p>
+        </div>
+    </div>
+
+
+    {{ centreQuote(
+        "Meals for the NHS saved my business. We wouldn't have been able to survive without them.",
+        "Helios Gala, owner of Pabellon, London") }}
+
+
+    <div class="container md:w-4/5 mx-auto px-4 py-6 md:pv-16">
+        <div class="flex flex-wrap justify-center">
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="bg-gray-200 border rounded p-4 flex flex-col justify-center h-full">
+                    <div class="text-gray-600">Total meals cooked</div>
+                    <div class="text-2xl font-bold">
+                        {{ data.summary.num_meals_delivered | thousands }}
+                    </div>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="bg-gray-200 border rounded p-4 flex flex-col justify-center h-full">
+                    <div class="text-gray-600">Food providers</div>
+                    <div class="text-2xl font-bold">
+                        {{ data.summary.num_providers_used }}
+                    </div>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="bg-gray-200 border rounded p-4 flex flex-col justify-center h-full">
+                    <div class="text-gray-600">Money spent</div>
+                    <div class="text-2xl font-bold">
+                        £{{ (data.summary.num_meals_delivered * 6.06) | thousands }}
+                    </div>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="bg-gray-200 border rounded p-4 flex flex-col justify-center h-full">
+                    <div class="text-gray-600">Upcoming meals</div>
+                    <div class="text-2xl font-bold">
+                        {{ data.summary.num_meals_yet_to_deliver }}+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="md:w-4/5 lg:w-2/3 mx-auto">
+        <h2 class="text-2xl text-center md:text-4xl font-bold pb-2">
+            Testimonials
+        </h2>
+    </div>
+
+    {{ caseStudy(
+        "A special thanks to everyone at Meals for the NHS for making this possible, to financially support small independent businesses in daunting circumstances (such a relief), keeping our sanity in check when things weren’t looking good and simply giving us a lifeline and a reason to smile, we salute you!",
+        "Ali Kalkan",
+        "215 Hackney, London",
+        "/images/photos/215hackney.png",
+        true) }}
+
+    {{ caseStudy(
+        "We have made and distributed over 2000 meals through this amazing charity and because of this has meant we have not had to furlough all of our staff. The work we are doing has boosted morale and allows us to help others in the only way we know how, feeding them!",
+        "Sarah Ventre",
+        "Full of Chaat, Birmingham",
+        "/images/photos/photo-5.jpg",
+        false) }}
+
+    {{ caseStudy(
+        "Not only were we overjoyed to be working on such a great project, it also quickly safeguarded the jobs of two employees. As our relationship grew, we were able to take three further staff members off furlough (helping to save taxpayers money) and bring them back into employment.",
+        "James Connolly",
+        "Gorilla Coffee Cafe, Birmingham",
+        "/images/photos/photo-6.jpg",
+        true) }}
+
+    {{ caseStudy(
+        "Like many independent small businesses, we lost all of our orders overnight, and we prepared for the worst. Meals for The NHS offered us a lifeline, a way to keep our company afloat during a difficult period.",
+        "Ian Beagle",
+        "Corporate Catering Ltd, Iver",
+        "/images/photos/photo-7.jpg",
+        false) }}
+
+    {% include "components/donation_button.njk" %}
+
+    <div class="container md:w-4/5 mx-auto px-4 py-6 md:pb-16">
+        <h2 class="text-2xl md:text-4xl font-bold pb-2">How it works</h2>
+        <div class="flex flex-wrap pb-4">
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="rounded bg-gray-200 p-4 flex flex-col h-full">
+                    <span class="text-4xl">1.</span>
+                    <span class="text-l">You generously donate</span>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="rounded bg-gray-200 p-4 flex flex-col h-full">
+                    <span class="text-4xl">2.</span>
+                    <span class="text-l">Hospitals sign up</span>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="rounded bg-gray-200 p-4 flex flex-col h-full">
+                    <span class="text-4xl">3.</span>
+                    <span class="text-l">We select local restaurants and place orders</span>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="rounded bg-gray-200 p-4 flex flex-col h-full">
+                    <span class="text-4xl">4.</span>
+                    <span class="text-l">Delicious meals are delivered!</span>
+                </div>
+            </div>
+        </div>
+        <p class="text-lg text-center md:text-xl text-gray-700">
+            100% of your donations goes towards funding meals (food, delivery, payments processing for website only)
+        </p>
+    </div>
+
+    {% include "components/food_safety_section.njk" %}
+    {% include "components/donation_form.njk" %}
+
+</main>
+
+<script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
