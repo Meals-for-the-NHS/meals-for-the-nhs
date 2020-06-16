@@ -13,10 +13,8 @@ title: Donar Wall
         <div class="md:w-4/5 lg:w-2/3 mx-auto justify-center text-center">
             <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold pb-2 lg:pb-6">{{ num_donors | thousands }} wonderful donors have raised £{{ money_raised | thousands }} so far.</h1>
             <p class="text-lg md:text-xl text-gray-700 pb-4">The level of public generosity has blown us away. So many beautiful comments and generous gifts make all the difference to the heroes we're feeding.</p>
-            <p class="text-lg md:text-xl text-gray-700 pb-4">We're still raising money, so to see yourself on the wall please donate!</p>
         </div>
     </div>
-    {% include "components/donation_button.njk" %}
     <div class="container md:w-4/5 mx-auto px-4 flex justify-center text-center pt-6 md:pt-12 lg:pb-8 flex flex-col">
       <h3 class="text-2xl md:text-4xl font-bold pb-2">Our donors' messages to our NHS heroes</h3>
     </div>
@@ -35,7 +33,6 @@ title: Donar Wall
             </li>
         </ul>
     </div>
-    {% include "components/donation_form.njk" %}
 </main>
 <script>
  {% include "scripts/donations.js" %}
