@@ -18,22 +18,95 @@ title: Meals for the NHS
         </div>
     </div>
     <div class="container md:w-4/5 lg:w-3/4 xl:w-1/2 mx-auto text-center px-4 pt-4 py-6 md:pb-16 lg:pb-24">
-        <h1 class="text-3xl md:text-5xl pb-3 md:pb-6">Feeding NHS staff fighting COVID-19</h1>
-
-        <p class="text-lg md:text-xl text-gray-700 mb-4 md:mb-8">The Meals for the NHS mission began back in March to support local hospitals battling COVID-19. We’d heard that at the end of gruelling shifts, frontline NHS staff were faced with closed canteens and nothing to eat. You can’t save the nation on an empty stomach, so we got to work.</p>
-
-        {% include "components/progress_bar.njk" %}
-
-        <p class="text-lg md:text-xl text-gray-700 my-4 md:mb-8">12 weeks later, the help of 100 volunteers, more than 200 local food providers, who were also in desperate need of an economic lifeline, and incredibly generous donations of £1.7+m, we’ve now delivered 225,000+ to 117 hospitals across the country.</p>
-
-        <p class="text-lg md:text-xl text-gray-700 mb-4 md:mb-8">We’re proud to have achieved a lot together in a short space of time, but recently we’ve been really happy to see many of the hospitals we’re working with reduce their orders for meals as COVID-19 cases begin to subside. While we acknowledge there may well be a ‘second wave’ coming, we can’t predict when. So while we have the money to buy meals and the volunteers to make it happen, we want to make this time count.</p>
-
-        <p class="text-lg md:text-xl text-gray-700">That’s why we’ve come to the decision to work towards The Big Finish for Meals for the NHS, with our last meals being delivered on 30th June 2020.</p>
-
+        <h1 class="text-3xl md:text-5xl pb-3 md:pb-6">Meals For The NHS</h1>
+        <div class="flex flex-wrap justify-center">
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="flex flex-col justify-center h-full">
+                    <div class="text-4xl font-bold">
+                        {{ data.summary.num_meals_delivered | thousands }}
+                    </div>
+                    <div class="text-gray-600">Meals delivered</div>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="flex flex-col justify-center h-full">
+                    <div class="text-4xl font-bold">
+                        100
+                    </div>
+                    <div class="text-gray-600">Hospitals</div>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="flex flex-col justify-center h-full">
+                    <div class="text-4xl font-bold">
+                        209
+                    </div>
+                    <div class="text-gray-600">Restaurants</div>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="flex flex-col justify-center h-full">
+                    <div class="text-4xl font-bold">
+                        £1.7M
+                    </div>
+                    <div class="text-gray-600">Your donations</div>
+                </div>
+            </div>
+        </div>
     </div>
-    {% include "components/problem.njk" %}
+
+    <div class="container md:w-4/5 mx-auto px-4 py-6 md:pv-16">
+        <h2 class="text-2xl md:text-4xl font-bold pb-2 text-center">
+            About Meals For The NHS
+        </h2>
+
+        <div class="flex flex-col md:flex-row">
+            <div class="p-2 md:p-3 w-full lg:w-1/2 mx-auto">
+                <p class="text-lg md:text-xl text-gray-700 my-4 md:mb-8">It began back in March 2020 when a few friends desperately wanted to help their local hospitals. They’d heard that at the end of long shifts battling COVID-19, frontline NHS staff were faced with the disheartening sight of closed canteens and nothing to eat.</p>
+                <p class="text-lg md:text-xl text-gray-700 my-4 md:mb-8">A few phone calls later, and our first delivery was made to the Whittington Hospital on 24th March.</p>
+            </div>
+            <div class="p-2 md:p-3 w-full lg:w-1/2 mx-auto">
+                <p class="text-lg md:text-xl text-gray-700 my-4 md:mb-8">From then on, we set out to sign up hospitals who needed our help, and find the volunteers and funds to make it happen. We knew local restaurants needed a lifeline too to survive the economic fallout of COVID-19...</p>
+                <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 mb-4 mr-4 rounded cursor-pointer text-xl leading-tight inline-block" href="/team">
+                    Read more
+                </a>
+            </div>
+        </div>
+        
+    </div>
+
     {% include "components/endorsements.njk" %}
+
+    {% include "components/problem.njk" %}
+
+    <div class="container md:w-4/5 lg:w-2/3 mx-auto px-4 py-6 md:pb-16">
+        <div class="pt-2 flex flex-col md:flex-row mx-auto md:justify-center flex-shrink">
+            <div class="py-2 md:px-2 flex justify-center">
+                <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 rounded cursor-pointer text-xl leading-tight" href="/impact/">
+                    See our impact
+                </a>
+            </div>
+            <div class="py-2 md:px-2 flex justify-center">
+                <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 rounded cursor-pointer text-xl leading-tight" href="/nhs/">
+                    Meet our NHS
+                </a>
+            </div>
+            <div class="py-2 md:px-2 flex justify-center">
+                <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 rounded cursor-pointer text-xl leading-tight" href="/team/">
+                    Behind the meals
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container md:w-4/5 mx-auto px-4 py-6 md:pb-16">
+        <h2 class="text-2xl md:text-4xl font-bold pb-2 text-center">Our Partners</h2>
+
+        {% include "components/partners-list.njk" %}
+    </div>
+
     {% include "components/tweets.njk" %}
+
 </main>
 <div class="pb-8 mx-auto">
 </div>

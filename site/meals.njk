@@ -8,19 +8,15 @@ title: Meals for the NHS
 
 {% from "components/feature_blocks.njk" import centreQuote, featureQuote, caseStudy %}
 
+{% set money_raised = data.summary.donations.donorbox.amount + data.summary.donations.sponsors.amount %}
+
 <main id="main" class="main flex flex-1 h-full flex-col focus:outline-none" tabindex="-1">
     <div class="container md:w-4/5 mx-auto justify-center text-center px-4 pt-6 md:pt-16">
         <div class="md:w-4/5 lg:w-2/3 mx-auto justify-center text-center">
-            <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold pb-2 lg:pb-6">Our Restaurants</h1>
-            <p class="text-lg md:text-xl text-gray-700 pb-4">We support local restaurants whose businesses were at risk of closing during COVID-19.</p>
+            <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold pb-2 lg:pb-6">Our Impact on our restaurants</h1>
+            <p class="text-lg md:text-xl text-gray-700 pb-4">We supported independent, local restaurants whose businesses were at risk of closing during COVID-19.</p>
         </div>
     </div>
-
-
-    {{ centreQuote(
-        "Meals for the NHS saved my business. We wouldn't have been able to survive without them.",
-        "Helios Gala, owner of Pabellon, London") }}
-
 
     <div class="container md:w-4/5 mx-auto px-4 py-6 md:pv-16">
         <div class="flex flex-wrap justify-center">
@@ -42,18 +38,51 @@ title: Meals for the NHS
             </div>
             <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
                 <div class="bg-gray-200 border rounded p-4 flex flex-col justify-center h-full">
-                    <div class="text-gray-600">Money spent</div>
+                    <div class="text-gray-600">Staff saved from furlough</div>
                     <div class="text-2xl font-bold">
-                        £{{ (data.summary.num_meals_delivered * 6.06) | thousands }}
+                        65
                     </div>
                 </div>
             </div>
             <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
                 <div class="bg-gray-200 border rounded p-4 flex flex-col justify-center h-full">
-                    <div class="text-gray-600">Upcoming meals</div>
+                    <div class="text-gray-600">Cash injected</div>
                     <div class="text-2xl font-bold">
-                        {{ data.summary.num_meals_yet_to_deliver }}+
+                        £{{ money_raised | millions }}
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ centreQuote(
+        "Meals for the NHS saved my business. We wouldn't have been able to survive without them.",
+        "Helios Gala, owner of Pabellon, London") }}
+
+    <div class="container md:w-4/5 mx-auto px-4 py-6 md:pv-16">
+        <h2 class="text-2xl text-center md:text-4xl font-bold pb-2">
+            Our Principles
+        </h2>
+
+        <div class="flex flex-wrap pb-4">
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="rounded bg-gray-200 p-4 flex flex-col h-full">
+                    <span class="text-l">Default to local, independent food providers</span>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="rounded bg-gray-200 p-4 flex flex-col h-full">
+                    <span class="text-l">Help as many food providers stay open</span>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="rounded bg-gray-200 p-4 flex flex-col h-full">
+                    <span class="text-l">Help keep food providers operate at cost</span>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
+                <div class="rounded bg-gray-200 p-4 flex flex-col h-full">
+                    <span class="text-l">Deliveries will be on time, all the time</span>
                 </div>
             </div>
         </div>
@@ -61,7 +90,7 @@ title: Meals for the NHS
 
     <div class="md:w-4/5 lg:w-2/3 mx-auto">
         <h2 class="text-2xl text-center md:text-4xl font-bold pb-2">
-            Testimonials
+            Meet the people behind the meals
         </h2>
     </div>
 
@@ -69,6 +98,7 @@ title: Meals for the NHS
         "A special thanks to everyone at Meals for the NHS for making this possible, to financially support small independent businesses in daunting circumstances (such a relief), keeping our sanity in check when things weren’t looking good and simply giving us a lifeline and a reason to smile, we salute you!",
         "Ali Kalkan",
         "215 Hackney, London",
+        "https://www.215hackney.co.uk/",
         "/images/photos/215hackney.png",
         true) }}
 
@@ -76,6 +106,7 @@ title: Meals for the NHS
         "We have made and distributed over 2000 meals through this amazing charity and because of this has meant we have not had to furlough all of our staff. The work we are doing has boosted morale and allows us to help others in the only way we know how, feeding them!",
         "Sarah Ventre",
         "Full of Chaat, Birmingham",
+        "https://www.facebook.com/TeamChaat/",
         "/images/photos/photo-5.jpg",
         false) }}
 
@@ -83,6 +114,7 @@ title: Meals for the NHS
         "Not only were we overjoyed to be working on such a great project, it also quickly safeguarded the jobs of two employees. As our relationship grew, we were able to take three further staff members off furlough (helping to save taxpayers money) and bring them back into employment.",
         "James Connolly",
         "Gorilla Coffee Cafe, Birmingham",
+        "https://www.gorillacoffee.co.uk/",
         "/images/photos/photo-6.jpg",
         true) }}
 
@@ -90,6 +122,7 @@ title: Meals for the NHS
         "Like many independent small businesses, we lost all of our orders overnight, and we prepared for the worst. Meals for The NHS offered us a lifeline, a way to keep our company afloat during a difficult period.",
         "Ian Beagle",
         "Corporate Catering Ltd, Iver",
+        "https://www.corporatecat.co.uk/",
         "/images/photos/photo-7.jpg",
         false) }}
 
