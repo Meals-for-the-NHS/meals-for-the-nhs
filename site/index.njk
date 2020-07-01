@@ -5,10 +5,11 @@ meta_description: Daily meals delivered to NHS hospital staff
 body_class: home
 title: Meals for the NHS
 ---
+{% set total_amount = data.summary.donations.sponsors.amount + data.summary.donations.donorbox.amount %}
+{% set total_donors = data.summary.donations.sponsors.donors + data.summary.donations.donorbox.donors %}
 
 <main id="main" class="main flex flex-1 h-full flex-col focus:outline-none" tabindex="-1">
-    <div class="absolute l-0 r-0 h-24 md:h-32 lg:h-48 w-full bg-blue-800"></div>
-    <div class="relative">
+    <div class="bg-blue-800">
         <div class="container flex items-center md:w-4/5 mx-auto justify-center text-center px-4 md:pt-4 md:pb-8">
             <div class="w-full md:w-1/2 p-2">
                 <a href="/film" class="block rounded bg-top md:bg-center bg-blue-900 bg-cover bg-no-repeat pb-golden w-full shadow-2xl relative" style="background-image: url('/images/photos/film.jpg')">
@@ -16,68 +17,35 @@ title: Meals for the NHS
                 </a>
             </div>
         </div>
-    </div>
-    <div class="container md:w-4/5 lg:w-3/4 xl:w-1/2 mx-auto text-center px-4 pt-4 py-6 md:pb-16 lg:pb-24">
-        <h1 class="text-3xl md:text-5xl pb-3 md:pb-6">Meals For The NHS</h1>
-        <div class="flex flex-wrap justify-center">
-            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
-                <div class="flex flex-col justify-center h-full">
-                    <div class="text-4xl font-bold">
-                        {{ data.summary.num_meals_delivered | thousands }}
-                    </div>
-                    <div class="text-gray-600">Meals delivered</div>
-                </div>
-            </div>
-            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
-                <div class="flex flex-col justify-center h-full">
-                    <div class="text-4xl font-bold">
-                        100
-                    </div>
-                    <div class="text-gray-600">Hospitals</div>
-                </div>
-            </div>
-            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
-                <div class="flex flex-col justify-center h-full">
-                    <div class="text-4xl font-bold">
-                        209
-                    </div>
-                    <div class="text-gray-600">Restaurants</div>
-                </div>
-            </div>
-            <div class="w-full sm:w-1/2 lg:w-1/4 text-center p-2">
-                <div class="flex flex-col justify-center h-full">
-                    <div class="text-4xl font-bold">
-                        £1.7M
-                    </div>
-                    <div class="text-gray-600">Your donations</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container md:w-4/5 mx-auto px-4 py-6 md:pv-16">
-        <h2 class="text-2xl md:text-4xl font-bold pb-2 text-center">
-            About Meals For The NHS
-        </h2>
-
-        <div class="flex flex-col md:flex-row">
-            <div class="p-2 md:p-3 w-full lg:w-1/2 mx-auto">
-                <p class="text-lg md:text-xl text-gray-700 my-4 md:mb-8">It began back in March 2020 when a few friends desperately wanted to help their local hospitals. They’d heard that at the end of long shifts battling COVID-19, frontline NHS staff were faced with the disheartening sight of closed canteens and nothing to eat.</p>
-                <p class="text-lg md:text-xl text-gray-700 my-4 md:mb-8">A few phone calls later, and our first delivery was made to the Whittington Hospital on 24th March.</p>
-            </div>
-            <div class="p-2 md:p-3 w-full lg:w-1/2 mx-auto">
-                <p class="text-lg md:text-xl text-gray-700 my-4 md:mb-8">From then on, we set out to sign up hospitals who needed our help, and find the volunteers and funds to make it happen. We knew local restaurants needed a lifeline too to survive the economic fallout of COVID-19...</p>
-                <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 mb-4 mr-4 rounded cursor-pointer text-xl leading-tight inline-block" href="/about-us/">
-                    Read more
+        <div class="container flex flex-col justify-center md:w-4/5 mx-auto pt-4 px-4 pb-8">
+            <h1 class="flex flex-wrap text-white text-2xl md:text-5xl text-center justify-center font-normal">
+                <span class="px-1 md:px-2">In</span>
+                <span class="px-1 md:px-2">99 days</span>
+                <span class="px-1 md:px-2">using</span>
+                <span class="px-1 md:px-2">£{{ total_amount | millions }}</span>
+                <span class="px-1 md:px-2">from</span>
+                <span class="px-1 md:px-2"><a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/donor-wall">{{ total_donors | thousands }} donors</a>,</span>
+                <span class="px-1 md:px-2"><a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/about-us">100 volunteers</a></span>
+                <span class="px-1 md:px-2">delivered</span>
+                <span class="px-1 md:px-2">{{ data.summary.num_meals_delivered | thousands }} meals</span>
+                <span class="px-1 md:px-2">from</span>
+                <span class="px-1 md:px-2"><a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/nhs">{{ data.summary.num_providers_used }} providers</a></span>
+                <span class="px-1 md:px-2">to</span>
+                <span class="px-1 md:px-2"><a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/nhs">{{ data.summary.num_hospitals_received }} hospitals</a></span>
+                <span class="px-1 md:px-2">at</span>
+            </h1>
+            <h1 class="flex flex-wrap text-white text-3xl md:text-5xl text-center justify-center">
+                <span class="p-2">Meals for the NHS</span>
+            </h1>
+            <div class="text-center pt-4 md:pt-8">
+                <a class="bg-white text-blue-600 hover:bg-blue-100 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 mb-4 mr-4 rounded cursor-pointer text-xl leading-tight inline-block" href="/team">
+                    Read our story
                 </a>
             </div>
         </div>
-        
     </div>
 
     {% include "components/endorsements.njk" %}
-
-    {% include "components/problem.njk" %}
 
     <div class="container md:w-4/5 lg:w-2/3 mx-auto px-4 py-6 md:pb-16">
         <div class="pt-2 flex flex-col md:flex-row mx-auto md:justify-center flex-shrink">
@@ -100,12 +68,31 @@ title: Meals for the NHS
     </div>
 
     <div class="container md:w-4/5 mx-auto px-4 py-6 md:pb-16">
-        <h2 class="text-2xl md:text-4xl font-bold pb-2 text-center">Our Partners</h2>
+        <h2 class="text-3xl md:text-4xl text-center pb-4">Our feed of love</h2>
+        <div class="flex flex-wrap">
+            {% for item in data.instagramFeed | limit(72) %}
+                <div class="w-full sm:w-1/2 md:w-1/3">
+                    <div class="p-2">
+                        <div class="relative rounded overflow-hidden" style="padding-bottom: 100%">
+                            <a href="{{item.postUrl}}">
+                                <img lazy class="absolute h-full w-full object-cover" src="{{ item.imagePath }}" />
+                                <img src="/images/icons/instagram.svg" class="absolute h-10 w-10 p-2 text-white top-0 right-0" alt="">
+                                <div class="absolute bottom-0 w-full p-1">
+                                    <div class="bg-white text-sm rounded p-2">{{item.caption | truncate(110)}}</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
 
-        {% include "components/partners-list.njk" %}
+        <div class="text-center pt-4">
+            <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 mb-4 mr-4 rounded cursor-pointer text-xl leading-tight inline-block" href="https://www.instagram.com/mealsforthenhs/" target="_blank">
+                See more on Instagram
+            </a>
+        </div>
     </div>
-
-    {% include "components/tweets.njk" %}
 
 </main>
 <div class="pb-8 mx-auto">
