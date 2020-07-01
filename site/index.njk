@@ -24,14 +24,14 @@ title: Meals for the NHS
                 <span class="px-1 md:px-2">using</span>
                 <span class="px-1 md:px-2">£{{ total_amount | millions }}</span>
                 <span class="px-1 md:px-2">from</span>
-                <span class="px-1 md:px-2"><a class="text-white border-b-2 border-blue-400" href="/donor-wall">{{ total_donors | thousands }} donors</a>,</span>
-                <span class="px-1 md:px-2"><a class="text-white border-b-2 border-blue-400" href="/about-us">100 volunteers</a></span>
+                <span class="px-1 md:px-2"><a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/donor-wall">{{ total_donors | thousands }} donors</a>,</span>
+                <span class="px-1 md:px-2"><a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/about-us">100 volunteers</a></span>
                 <span class="px-1 md:px-2">delivered</span>
                 <span class="px-1 md:px-2">{{ data.summary.num_meals_delivered | thousands }} meals</span>
                 <span class="px-1 md:px-2">from</span>
-                <span class="px-1 md:px-2"><a class="text-white border-b-2 border-blue-400" href="/nhs">{{ data.summary.num_providers_used }} providers</a></span>
+                <span class="px-1 md:px-2"><a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/nhs">{{ data.summary.num_providers_used }} providers</a></span>
                 <span class="px-1 md:px-2">to</span>
-                <span class="px-1 md:px-2"><a class="text-white border-b-2 border-blue-400" href="/nhs">{{ data.summary.num_hospitals_received }} hospitals</a></span>
+                <span class="px-1 md:px-2"><a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/nhs">{{ data.summary.num_hospitals_received }} hospitals</a></span>
                 <span class="px-1 md:px-2">at</span>
             </h1>
             <h1 class="flex flex-wrap text-white text-3xl md:text-5xl text-center justify-center">
@@ -46,8 +46,6 @@ title: Meals for the NHS
     </div>
 
     {% include "components/endorsements.njk" %}
-
-    {# {% include "components/problem.njk" %} #}
 
     <div class="container md:w-4/5 lg:w-2/3 mx-auto px-4 py-6 md:pb-16">
         <div class="pt-2 flex flex-col md:flex-row mx-auto md:justify-center flex-shrink">
@@ -68,14 +66,6 @@ title: Meals for the NHS
             </div>
         </div>
     </div>
-
-    {# <div class="container md:w-4/5 mx-auto px-4 py-6 md:pb-16">
-        <h2 class="text-2xl md:text-4xl font-bold pb-2 text-center">Our Partners</h2>
-
-        {% include "components/partners-list.njk" %}
-    </div> #}
-
-    {# {% include "components/tweets.njk" %} #}
 
     <div class="container md:w-4/5 mx-auto px-4 py-6 md:pb-16">
         <h2 class="text-3xl md:text-4xl text-center pb-4">Our feed of love</h2>
