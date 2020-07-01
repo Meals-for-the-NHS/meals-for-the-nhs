@@ -26,7 +26,7 @@ title: Meals for the NHS
             </div>
             <div class="w-full lg:w-1/2 text-center p-2">
                 <div class="border rounded p-4 flex flex-col h-full">
-                    <div class="text-xl text-gray-500">Donors</div>
+                    <div class="text-xl text-gray-500">Donations</div>
                     <div class="text-4xl font-bold">
 						{{ num_donors | thousands }}
 					</div>
@@ -64,39 +64,28 @@ title: Meals for the NHS
 					</div>
                 </div>
             </div>
-            <div class="w-full text-center p-2">
+            <div class="w-full lg:w-1/2 text-center p-2">
                 <div class="border rounded p-4 flex flex-col h-full">
                     <div class="text-xl text-gray-500">Areas covered</div>
                     <div class="text-4xl font-bold">
 						{{ data.summary.cities_covered.length }}
 					</div>
-                    <ul class="flex flex-wrap justify-center pt-3">
-						{% for city in data.summary.cities_covered %}
-						    <li class="p-2">
-								{# this is why when I'm doing HTML, I use 2 space tabs #}
-								<div class="bg-blue-100 rounded py-1 px-2 text-lg text-blue-800">
-									{{ city }}
-								</div>
-							</li>
-						{% endfor %}
-                    </ul>
                 </div>
             </div>
-            <div class="w-full text-center p-2">
+            <div class="w-full lg:w-1/2 text-center p-2">
                 <div class="border rounded p-4 flex flex-col h-full">
                     <div class="text-xl text-gray-500">Hospitals fed</div>
                     <div class="text-4xl font-bold">
                         {{ data.summary.num_hospitals_received }}
                     </div>
-                    <ul class="flex flex-wrap justify-center pt-3">
-                        {% for hospital in data.hospitals.records %}
-                            <li class="p-2">
-                                <div class="bg-blue-100 rounded py-1 px-2 text-lg text-blue-800">
-                                    {{ hospital.fields["Hospital Name"] }}
-                                </div>
-                            </li>
-                        {% endfor %}
-                    </ul>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 text-center p-2">
+                <div class="border rounded p-4 flex flex-col h-full">
+                    <div class="text-xl text-gray-500">Number of Volunteers</div>
+                    <div class="text-4xl font-bold">
+                        94
+					</div>
                 </div>
             </div>
             <div class="w-full text-center p-2">
