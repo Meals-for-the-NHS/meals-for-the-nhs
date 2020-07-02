@@ -63,6 +63,7 @@ module.exports = eleventyConfig => {
     eleventyConfig.addLayoutAlias('dashboard', 'layouts/dashboard.njk')
 
     // Include our static assets
+    eleventyConfig.addPassthroughCopy("assets")
     eleventyConfig.addPassthroughCopy("css")
     eleventyConfig.addPassthroughCopy("js")
     eleventyConfig.addPassthroughCopy("images")

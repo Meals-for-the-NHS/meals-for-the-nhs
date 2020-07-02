@@ -44,7 +44,7 @@ title: Meals for the NHS
                 <div class="border rounded p-4 flex flex-col h-full">
                     <div class="text-xl text-gray-500">Orders completed</div>
                     <div class="text-4xl font-bold">
-						{{ data.summary.num_orders_completed }}
+						{{ data.summary.num_orders_completed | thousands }}
 					</div>
                 </div>
             </div>
@@ -74,17 +74,9 @@ title: Meals for the NHS
             </div>
             <div class="w-full lg:w-1/2 text-center p-2">
                 <div class="border rounded p-4 flex flex-col h-full">
-                    <div class="text-xl text-gray-500">Hospitals fed</div>
-                    <div class="text-4xl font-bold">
-                        {{ data.summary.num_hospitals_received }}
-                    </div>
-                </div>
-            </div>
-            <div class="w-full lg:w-1/2 text-center p-2">
-                <div class="border rounded p-4 flex flex-col h-full">
                     <div class="text-xl text-gray-500">Number of Volunteers</div>
                     <div class="text-4xl font-bold">
-                        94
+                        100
 					</div>
                 </div>
             </div>
