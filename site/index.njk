@@ -18,25 +18,26 @@ title: Meals for the NHS
             </div>
         </div>
         <div class="container flex flex-col justify-center md:w-4/5 mx-auto pt-4 px-4 pb-8">
-            <h1 class="flex flex-wrap text-white text-2xl md:text-5xl text-center justify-center font-normal">
-                <span class="px-1 md:px-2">In</span>
-                <span class="px-1 md:px-2">99 days</span>
-                <span class="px-1 md:px-2">using</span>
-                <span class="px-1 md:px-2">£{{ total_amount | millions }}</span>
-                <span class="px-1 md:px-2">from</span>
-                <span class="px-1 md:px-2"><a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/donor-wall">{{ total_donors | thousands }} donors</a>,</span>
-                <span class="px-1 md:px-2"><a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/about-us">100 volunteers</a></span>
-                <span class="px-1 md:px-2">delivered</span>
-                <span class="px-1 md:px-2">{{ data.summary.num_meals_delivered | thousands }} meals</span>
-                <span class="px-1 md:px-2">from</span>
-                <span class="px-1 md:px-2"><a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/nhs">{{ data.summary.num_providers_used }} providers</a></span>
-                <span class="px-1 md:px-2">to</span>
-                <span class="px-1 md:px-2"><a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/nhs">{{ data.summary.num_hospitals_received }} hospitals</a></span>
-                <span class="px-1 md:px-2">at</span>
-            </h1>
             <h1 class="flex flex-wrap text-white text-3xl md:text-5xl text-center justify-center">
                 <span class="p-2">Meals for the NHS</span>
             </h1>
+            <h1 class="flex flex-wrap text-white text-2xl md:text-5xl text-center justify-center font-normal">
+                100 <span class="px-1 md:px-2"><a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/about-us">volunteers</a></span><br />
+                <span class="px-1 md:px-2">using</span>
+                <span class="px-1 md:px-2">£{{ total_amount | millions }}</span><br />
+                <span class="px-1 md:px-2">from</span>
+                <span class="px-1 md:px-2">{{ total_donors | thousands }} <a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/donor-wall">donors</a>,</span><br />
+
+                <span class="px-1 md:px-2">delivered</span>
+                <span class="px-1 md:px-2">{{ data.summary.num_meals_delivered | thousands }} meals</span><br />
+                <span class="px-1 md:px-2">from</span>
+                <span class="px-1 md:px-2">{{ data.summary.num_providers_used }} <a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/meals">providers</a></span><br />
+                <span class="px-1 md:px-2">to</span>
+                <span class="px-1 md:px-2">{{ data.summary.num_hospitals_received }} <a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/nhs">hospitals</a></span><br />
+                <span class="px-1 md:px-2">over</span>
+                <span class="px-1 md:px-2">99 days.</span>
+            </h1>
+
             <div class="text-center pt-4 md:pt-8">
                 <a class="bg-white text-blue-600 hover:bg-blue-100 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 mb-4 mr-4 rounded cursor-pointer text-xl leading-tight inline-block" href="/team">
                     Read our story
