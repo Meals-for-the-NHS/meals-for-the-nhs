@@ -42,20 +42,21 @@ title: Meals for the NHS
             </div>
             <div class="w-full lg:w-1/2 text-center p-2">
                 <div class="border rounded p-4 flex flex-col h-full">
+                    <div class="text-xl text-gray-500">Hospitals supported</div>
+                    <div class="text-4xl font-bold">
+                        {{ data.summary.num_hospitals_received }}
+                    </div>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 text-center p-2">
+                <div class="border rounded p-4 flex flex-col h-full">
                     <div class="text-xl text-gray-500">Orders completed</div>
                     <div class="text-4xl font-bold">
 						{{ data.summary.num_orders_completed | thousands }}
 					</div>
                 </div>
             </div>
-            <div class="w-full lg:w-1/2 text-center p-2">
-                <div class="border rounded p-4 flex flex-col h-full">
-                    <div class="text-xl text-gray-500">Hospitals supported</div>
-                    <div class="text-4xl font-bold">
-						{{ data.summary.num_hospitals_received }}
-					</div>
-                </div>
-            </div>
+
             <div class="w-full lg:w-1/2 text-center p-2">
                 <div class="border rounded p-4 flex flex-col h-full">
                     <div class="text-xl text-gray-500 flex-grow">Food providers</div>
@@ -74,7 +75,7 @@ title: Meals for the NHS
             </div>
             <div class="w-full lg:w-1/2 text-center p-2">
                 <div class="border rounded p-4 flex flex-col h-full">
-                    <div class="text-xl text-gray-500">Number of Volunteers</div>
+                    <div class="text-xl text-gray-500">Number of volunteers</div>
                     <div class="text-4xl font-bold">
                         100
 					</div>
@@ -82,7 +83,8 @@ title: Meals for the NHS
             </div>
             <div class="w-full text-center p-2">
                 <div class="p-2">
-                    <div class="text-sm text-gray-500">Last updated: {{ data.hospitals.updated | dateDisplay }}</div>
+                    <!--<div class="text-sm text-gray-500">Last updated: {{ data.hospitals.updated | dateDisplay }}</div>-->
+                    <div class="text-sm text-gray-500">Final numbers as of 30 June, 2020</div>
                 </div>
             </div>
         </div>
