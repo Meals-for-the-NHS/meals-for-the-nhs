@@ -9,45 +9,55 @@ title: Donate
 
 {% set money_raised = data.summary.donations.donorbox.amount + data.summary.donations.sponsors.amount %}
 {% set num_donors = data.summary.donations.donorbox.donors + data.summary.donations.sponsors.donors %}
+<div class="container md:w-4/5 lg:w-3/4 xl:w-1/2 mx-auto text-center px-4 pt-20 py-6 md:pb-16">
+        <p class="text-lg md:text-xl text-gray-700 italic mb-4 md:mb-8">Please note, donations are now closed and Meals for the NHS has wrapped up with the final meals delivered on 30th June. We’d like to thank you all for your continued support!<p>
 
-<main id="main" class="main flex flex-1 h-full flex-col focus:outline-none" tabindex="-1">
+        <p class="text-lg md:text-xl text-gray-700 italic">If you have been fundraising and still have a donation to process, please contact <a href="mailto:team@mealsforthenhs.com">team@mealsforthenhs.com</a></p>
+    </div>
+<main id="main" class="main content-page flex flex-1 h-full flex-col focus:outline-none" tabindex="-1">
 
-    <div class="md:w-4/5 lg:w-2/3 mx-auto justify-center text-center pt-6 md:pt-16">
-        <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold pb-2 lg:pb-6">Our Donors</h1>
+    <div class="md:w-4/5 lg:w-2/3 mx-auto justify-center text-center">
+        <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold pb-2 lg:pb-6">{{ num_donors | thousands }} wonderful donors raised an incredible £{{ money_raised | thousands }}</h1>
+
         <p class="text-lg md:text-xl text-gray-700 pb-4">We were powered 100% by your donations, and 100% of your donations went directly towards more meals.</p>
 
-        {% include "components/progress_bar.njk" %}
     </div>
 
     {{ centreQuote(
         "We are grateful - every day - for all those on the front line, the doctors, the nurses, the porters and everyone working so hard to help patients recover and to keep us all well.",
         "Marie-Helene, May 2020") }}
 
-    <div class="py-8 flex flex-col md:flex-row mx-auto md:justify-center">
-        <div class="md:px-2 flex justify-center">
-            <a class="dbox-donation-button bg-blue-800 hover:bg-blue-900 transition-all ease-in-out duration-300 py-4 px-6 rounded-lg cursor-pointer text-white text-lg md:text-2xl flex justify-center items-center font-regular border-b-4 border-blue-900" href="/donor-wall">
-                See our Donor Wall of ❤️
-            </a>
-        </div>
-    </div>
-
-    <div class="container md:w-4/5 lg:w-3/4 xl:w-1/2 mx-auto text-center px-4 py-6 md:pb-16">
-        <p class="text-lg md:text-xl text-gray-700 font-semibold mb-4 md:mb-8">Please note, donations are now closed and Meals for the NHS has wrapped up with the final meals delivered on 30th June, we’d like to thank you all for your continued support!<p>
-
-        <p class="text-lg md:text-xl text-gray-700 font-semibold">If you have been fundraising and still have a donation to process, please contact <a href="mailto:team@mealsforthenhs.com">team@mealsforthenhs.com</a></p>
-    </div>
-
     <div class="container md:w-4/5 lg:w-2/3 mx-auto px-4 py-6 md:pb-16">
-
+<!--
         <p class="text-lg text-center md:text-xl text-gray-700">
             We have partnered with a UK registered charity to act as a fiscal sponsor for larger donations. If you would like to speak to someone from the team please get in touch here.We have partnered with a UK registered charity to act as a fiscal sponsor for larger donations. If you would like to speak to someone from the team please get in touch here.
         </p>
+
         <p class="py-2 text-lg text-center md:text-xl text-gray-700">
             100% of your donations went towards funding meals (food, delivery, payments processing for website only)
         </p>
     </div>
-
+-->
 </main>
+        <div class="container md:w-4/5 mx-auto px-4 flex justify-center text-center pt-6 md:pt-12 lg:pb-8 flex flex-col">
+      <h3 class="text-2xl md:text-4xl font-bold pb-2">Our donors&rsquo; messages to our NHS heroes</h3>
+    </div>
+    <div class="container md:w-4/5 mx-auto px-4 pb-6 md:pb-16">
+        <div id="donation-loader" class="h-48 w-full flex items-center justify-center">
+          <p class="text-gray-600 text-xl pb-2">Loading donations</p>
+        </div>
+        <ul class="donations-container flex flex-wrap justify-center">
+            <li id="donation-template" class="w-full md:w-1/2 lg:w-1/3 flex p-2 md:p-3">
+                <div class="border border-gray-200 hover:shadow-2xl rounded-lg flex-grow bg-white flex flex-col flex-grow">
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h4 class="text-gray-600 text-base pb-2"><span class="first_name"></span> gave £<span class="amount"></span> on <span class="date"></span></h4>
+                        <p class="comment lg:text-xl xl:text-2xl"></p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
 <script>
-    {% include "scripts/donations.js" %}
+ {% include "scripts/donations.js" %}
 </script>
