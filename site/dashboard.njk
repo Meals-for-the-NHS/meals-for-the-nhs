@@ -6,9 +6,6 @@ body_class: absolute h-full w-full overflow-hidden
 title: Meals for the NHS
 ---
 
-{% set money_raised = data.summary.donations.donorbox.amount + data.summary.donations.sponsors.amount %}
-{% set num_donors = data.summary.donations.donorbox.donors + data.summary.donations.sponsors.donors %}
-
 <div class="absolute h-full w-full top-0 bottom-0 left-0 right-0">
     {% include "components/header.njk" %}
     <div class="absolute hidden md:block top-16 bottom-0 left-0 right-1/2" class="overflow-hidden">
@@ -20,7 +17,7 @@ title: Meals for the NHS
                 <div class="border rounded p-4 flex flex-col h-full">
                     <div class="text-xl text-gray-500">Money raised</div>
                     <div class="text-4xl font-bold">
-						£1,815,616.82
+						£{{ data.numbers.money_raised | thousands }}
 					</div>
                 </div>
             </div>
@@ -28,7 +25,7 @@ title: Meals for the NHS
                 <div class="border rounded p-4 flex flex-col h-full">
                     <div class="text-xl text-gray-500">Donations</div>
                     <div class="text-4xl font-bold">
-						{{ num_donors | thousands }}
+						{{ data.numbers.donors | thousands }}
 					</div>
                 </div>
             </div>
@@ -36,7 +33,7 @@ title: Meals for the NHS
                 <div class="border rounded p-4 flex flex-col h-full">
                     <div class="text-xl text-gray-500">Meals delivered</div>
                     <div class="text-4xl font-bold">
-						303,767
+						{{ data.numbers.meals_delivered | thousands }}
 					</div>
                 </div>
             </div>
@@ -44,7 +41,7 @@ title: Meals for the NHS
                 <div class="border rounded p-4 flex flex-col h-full">
                     <div class="text-xl text-gray-500">Hospitals supported</div>
                     <div class="text-4xl font-bold">
-                        146
+                        {{ data.numbers.hospitals_supported }}
                     </div>
                 </div>
             </div>
@@ -52,7 +49,7 @@ title: Meals for the NHS
                 <div class="border rounded p-4 flex flex-col h-full">
                     <div class="text-xl text-gray-500">Orders completed</div>
                     <div class="text-4xl font-bold">
-						{{ data.summary.num_orders_completed | thousands }}
+						{{ data.numbers.orders_completed | thousands }}
 					</div>
                 </div>
             </div>
@@ -61,7 +58,7 @@ title: Meals for the NHS
                 <div class="border rounded p-4 flex flex-col h-full">
                     <div class="text-xl text-gray-500 flex-grow">Food providers</div>
                     <div class="text-4xl font-bold">
-						223
+						{{ data.numbers.food_providers }}
 					</div>
                 </div>
             </div>
@@ -69,7 +66,7 @@ title: Meals for the NHS
                 <div class="border rounded p-4 flex flex-col h-full">
                     <div class="text-xl text-gray-500">Areas covered</div>
                     <div class="text-4xl font-bold">
-						{{ data.summary.cities_covered.length }}
+						{{ data.numbers.areas_covered }}
 					</div>
                 </div>
             </div>
@@ -77,13 +74,12 @@ title: Meals for the NHS
                 <div class="border rounded p-4 flex flex-col h-full">
                     <div class="text-xl text-gray-500">Number of volunteers</div>
                     <div class="text-4xl font-bold">
-                        100
+                        {{ data.numbers.volunteers }}
 					</div>
                 </div>
             </div>
             <div class="w-full text-center p-2">
                 <div class="p-2">
-                    <!--<div class="text-sm text-gray-500">Last updated: {{ data.hospitals.updated | dateDisplay }}</div>-->
                     <div class="text-sm text-gray-500">Final numbers as of 30 June, 2020</div>
                 </div>
             </div>

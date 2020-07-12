@@ -5,8 +5,6 @@ meta_description: Daily meals delivered to NHS hospital staff
 body_class: home
 title: Meals for the NHS
 ---
-{% set total_amount = data.summary.donations.sponsors.amount + data.summary.donations.donorbox.amount %}
-{% set total_donors = data.summary.donations.sponsors.donors + data.summary.donations.donorbox.donors %}
 
 <main id="main" class="main flex flex-1 h-full flex-col focus:outline-none" tabindex="-1">
     <div class="bg-blue-800">
@@ -17,19 +15,13 @@ title: Meals for the NHS
                 </a>
             </div>
         </div>
-        <div class="container flex flex-col justify-center md:w-4/5 mx-auto pt-4 px-4 pb-8">
+        <div class="container flex flex-col justify-center md:w-4/5 lg:w-1/2 mx-auto pt-4 px-4 pb-8">
             <h1 class="flex flex-wrap text-white text-3xl md:text-5xl text-center justify-center">
                 <span class="p-2">Meals for the NHS</span>
             </h1>
+            {% set sentence_classes = "text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" %}
             <h1 class="text-white text-2xl md:text-4xl text-center justify-center font-normal">
-                <span>100 <a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/about-us">volunteers</a>,</span><br />
-                <span>with £1,815,616.82 </span><br class="lg:hidden" /><span> </span>
-                <span>from {{ total_donors | thousands }} <a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/donor-wall">donors</a>,</span><br />
-
-                <span>delivered 303,767 meals</span><br class="lg:hidden" /><span> </span>
-                <span>via 223 <a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/meals">providers</a></span><br />
-                <span>to 146 <a class="text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" href="/nhs">hospitals</a></span><br class="lg:hidden" /><span> </span>
-                <span>over 100 days.</span>
+                {{ data.numbers.volunteers }} <a class="{{ sentence_classes }}" href="/about-us">volunteers</a>, with £{{ data.numbers.money_raised | thousands }} from {{ data.numbers.donors | thousands }} <a class="{{ sentence_classes }}" href="/donor-wall">donors</a>, delivered {{ data.numbers.meals_delivered | thousands }} meals via {{ data.numbers.food_providers }} <a class="{{ sentence_classes }}" href="/meals">providers</a> to {{ data.numbers.hospitals_supported }} <a class="{{ sentence_classes }}" href="/nhs">hospitals</a> over {{ data.numbers.delivery_days }} days.
             </h1>
 
             <div class="text-center pt-4 md:pt-8">
