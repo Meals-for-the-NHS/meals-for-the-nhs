@@ -5,13 +5,20 @@ module.exports = eleventyConfig => {
     // Add commas to numbers
     eleventyConfig.addFilter("thousands", require("./filters/thousands.js"))
 
-    eleventyConfig.addFilter("daysSince", require("./filters/daysSince.js"));
+    // round to millions
+    eleventyConfig.addFilter("millions", require("./filters/millions.js"))
+
+    eleventyConfig.addFilter("daysSince", require("./filters/daysSince.js"))
 
     // Add a readable date formatter filter to Nunjucks
     eleventyConfig.addFilter("dateDisplay", require("./filters/dates.js"))
 
     // Add a HTML timestamp formatter filter to Nunjucks
     eleventyConfig.addFilter("htmlDateDisplay", require("./filters/timestamp.js"))
+
+    eleventyConfig.addFilter('limit', function(arr, limit) {
+        return arr.slice(0, limit)
+    })
 
     // Minify our HTML
     eleventyConfig.addTransform("htmlmin", (content, outputPath) => {
@@ -56,6 +63,7 @@ module.exports = eleventyConfig => {
     eleventyConfig.addLayoutAlias('dashboard', 'layouts/dashboard.njk')
 
     // Include our static assets
+    eleventyConfig.addPassthroughCopy("assets")
     eleventyConfig.addPassthroughCopy("css")
     eleventyConfig.addPassthroughCopy("js")
     eleventyConfig.addPassthroughCopy("images")

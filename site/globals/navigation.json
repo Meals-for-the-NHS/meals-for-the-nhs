@@ -1,19 +1,23 @@
 {
     "main": [
         {
-            "label": "💙 NHS",
+            "label": "NHS",
+            "emoji": "💙",
             "url": "/nhs"
         },
         {
-            "label": "👩‍🍳 Meals",
+            "label": "Meals",
+            "emoji": "👩‍🍳",
             "url": "/meals"
         },
         {
-            "label": "🙏 Donors",
+            "label": "Donors",
+            "emoji": "🙏",
             "url": "/donations"
         },
         {
-            "label": "✊ Impact",
+            "label": "Impact",
+            "emoji": "✊",
             "url": "/dashboard"
         },
         {

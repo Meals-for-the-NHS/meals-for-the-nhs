@@ -7,8 +7,7 @@ title: Meals for the NHS
 ---
 
 <main id="main" class="main flex flex-1 h-full flex-col focus:outline-none" tabindex="-1">
-    <div class="absolute l-0 r-0 h-24 md:h-32 lg:h-48 w-full bg-blue-800"></div>
-    <div class="relative">
+    <div class="bg-blue-800">
         <div class="container flex items-center md:w-4/5 mx-auto justify-center text-center px-4 md:pt-4 md:pb-8">
             <div class="w-full md:w-1/2 p-2">
                 <a href="/film" class="block rounded bg-top md:bg-center bg-blue-900 bg-cover bg-no-repeat pb-golden w-full shadow-2xl relative" style="background-image: url('/images/photos/film.jpg')">
@@ -16,26 +15,76 @@ title: Meals for the NHS
                 </a>
             </div>
         </div>
+        <div class="container flex flex-col justify-center md:w-4/5 lg:w-1/2 mx-auto pt-4 px-4 pb-8">
+            <h1 class="flex flex-wrap text-white text-3xl md:text-5xl text-center justify-center">
+                <span class="p-2">Meals for the NHS</span>
+            </h1>
+            {% set sentence_classes = "text-white border-b-2 border-blue-400 hover:border-blue-300 transition-all duration-300 ease-in-out" %}
+            <h1 class="text-white text-2xl md:text-4xl text-center justify-center font-normal">
+                {{ data.numbers.volunteers }} <a class="{{ sentence_classes }}" href="/about-us">volunteers</a>, with £{{ data.numbers.money_raised | thousands }} from {{ data.numbers.donors | thousands }} <a class="{{ sentence_classes }}" href="/donor-wall">donors</a>, delivered {{ data.numbers.meals_delivered | thousands }} meals via {{ data.numbers.food_providers }} <a class="{{ sentence_classes }}" href="/meals">providers</a> to {{ data.numbers.hospitals_supported }} <a class="{{ sentence_classes }}" href="/nhs">hospitals</a> over {{ data.numbers.delivery_days }} days.
+            </h1>
+
+            <div class="text-center pt-4 md:pt-8">
+                <a class="bg-white text-blue-600 hover:bg-blue-100 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 mb-4 mr-4 rounded cursor-pointer text-xl leading-tight inline-block" href="/about-us">
+                    Read our story
+                </a>
+            </div>
+        </div>
     </div>
-    <div class="container md:w-4/5 lg:w-3/4 xl:w-1/2 mx-auto text-center px-4 pt-4 py-6 md:pb-16 lg:pb-24">
-        <h1 class="text-3xl md:text-5xl pb-3 md:pb-6">Feeding NHS staff fighting COVID-19</h1>
 
-        <p class="text-lg md:text-xl text-gray-700 mb-4 md:mb-8">The Meals for the NHS mission began back in March to support local hospitals battling COVID-19. We’d heard that at the end of gruelling shifts, frontline NHS staff were faced with closed canteens and nothing to eat. You can’t save the nation on an empty stomach, so we got to work.</p>
 
-        {% include "components/progress_bar.njk" %}
-
-        <p class="text-lg md:text-xl text-gray-700 my-4 md:mb-8">12 weeks later, the help of 100 volunteers, more than 200 local food providers, who were also in desperate need of an economic lifeline, and incredibly generous donations of £1.7+m, we’ve now delivered 225,000+ to 117 hospitals across the country.</p>
-
-        <p class="text-lg md:text-xl text-gray-700 mb-4 md:mb-8">We’re proud to have achieved a lot together in a short space of time, but recently we’ve been really happy to see many of the hospitals we’re working with reduce their orders for meals as COVID-19 cases begin to subside. While we acknowledge there may well be a ‘second wave’ coming, we can’t predict when. So while we have the money to buy meals and the volunteers to make it happen, we want to make this time count.</p>
-
-        <p class="text-lg md:text-xl text-gray-700">That’s why we’ve come to the decision to work towards The Big Finish for Meals for the NHS, with our last meals being delivered on 30th June 2020.</p>
-
+    <div class="container md:w-4/5 lg:w-2/3 mx-auto px-4 py-6 md:pb-16">
+        <div class="pt-2 flex flex-col md:flex-row mx-auto md:justify-center flex-shrink">
+            <div class="py-2 md:px-2 flex justify-center">
+                <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 rounded cursor-pointer text-xl leading-tight" href="/dashboard/">
+                    See our impact
+                </a>
+            </div>
+            <div class="py-2 md:px-2 flex justify-center">
+                <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 rounded cursor-pointer text-xl leading-tight" href="/nhs/">
+                    Meet our NHS
+                </a>
+            </div>
+            <div class="py-2 md:px-2 flex justify-center">
+                <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 rounded cursor-pointer text-xl leading-tight" href="/team/">
+                    Behind the meals
+                </a>
+            </div>
+        </div>
     </div>
-    {% include "components/problem.njk" %}
+
     {% include "components/endorsements.njk" %}
-    {% include "components/tweets.njk" %}
+
+
+    <div class="container md:w-4/5 mx-auto px-4 py-6 md:pb-16">
+        <h2 class="text-3xl md:text-4xl text-center pb-4">Our feed of love</h2>
+        <div class="flex flex-wrap">
+            {% for item in data.instagramFeed | limit(72) %}
+                <div class="w-full sm:w-1/2 md:w-1/3">
+                    <div class="p-2">
+                        <div class="relative rounded overflow-hidden" style="padding-bottom: 100%">
+                            <a href="{{item.postUrl}}">
+                                <img lazy class="absolute h-full w-full object-cover" src="{{ item.imagePath }}" />
+                                <img src="/images/icons/instagram.svg" class="absolute h-10 w-10 p-2 text-white top-0 right-0" alt="">
+                                <div class="absolute bottom-0 w-full p-1">
+                                    <div class="bg-white text-sm rounded p-2">{{item.caption | truncate(110)}}</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center pt-4">
+            <a class="bg-blue-600 text-white hover:bg-blue-800 border-b-2 border-blue-800 transition-all ease-in-out duration-300 py-3 px-5 md:py-4 md:px-6 mb-4 mr-4 rounded cursor-pointer text-xl leading-tight inline-block" href="https://www.instagram.com/mealsforthenhs/" target="_blank">
+                See more on Instagram
+            </a>
+        </div>
+    </div>
+
 </main>
 <div class="pb-8 mx-auto">
 </div>
 
-<script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
+

@@ -1,8 +1,8 @@
 
 {% macro centreQuote(quote, attribution) %}
-<div class="container md:w-4/5 mx-auto px-4 py-6 flex flex-col-reverse flex-row">
+<div class="container md:w-4/5 lg:w-3/5 mx-auto px-4 py-6">
     <div class="w-full p-6 text-center rounded-lg bg-blue-100">
-        <blockquote class="pb-4 leading-snug text-xl lg:text-3xl">
+        <blockquote class="leading-snug text-xl lg:text-2xl">
             <span class="text-gray-600">“</span>
             {{quote}}
             <span class="text-gray-600">”</span>
@@ -34,7 +34,7 @@
 </div>
 {% endmacro %}
 
-{% macro caseStudy(quote, attribution, org, imageSrc, reverse) %}
+{% macro caseStudy(quote, attribution, org, orgUrl, imageSrc, reverse) %}
 <div class="container md:w-4/5 mx-auto px-4 py-6 flex flex-col {% if reverse %}md:flex-row-reverse{% else %}md:flex-row{% endif %} md:items-center">
     <div class="w-full {% if imageSrc %}md:w-3/4{% endif %} px-6 flex flex-col justify-center">
         <blockquote class=" text-md lg:text-xl">
@@ -43,12 +43,17 @@
             <span class="text-gray-600">”</span>
         </blockquote>
         <attr class="text-lg pb-4 opacity-75 text-right">
-            {% if attribution %}{{attribution}}<br />{% endif %}{{org}}
+            {% if attribution %}{{attribution}}<br />{% endif %}
+        {% if orgUrl %}<a href="{{orgUrl}}">{% endif %}
+        {{org}}
+        {% if orgUrl %}</a>{% endif %}
         </attr>
     </div>
     {% if imageSrc %}
     <div class="w-full md:w-1/4 lg:pl-4">
+        {% if orgUrl %}<a href="{{orgUrl}}">{% endif %}
         <img class="object-cover w-full rounded" src="{{imageSrc}}" alt="photo of {{org}}" />
+        {% if orgUrl %}</a>{% endif %}
     </div>
     {% endif %}
 </div>
