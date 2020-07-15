@@ -2,6 +2,7 @@
 from pathlib import Path
 import json
 import requests
+from unidecode import unidecode
 
 with open("site/globals/data/team.json") as teams_json:
     data = json.load(teams_json)
@@ -9,7 +10,7 @@ with open("site/globals/data/team.json") as teams_json:
 for record in data["records"]:
     name = record["fields"]["Name"]
     image = record["fields"]["Picture"][0]["thumbnails"]["large"]["url"]
-    image_url = (name.replace(" ", "-") + '.png').lower()
+    image_url = (unidecode(name).replace(" ", "-") + '.png').lower()
     filepath = Path('images') / 'team' / image_url.lower()
 
     if not filepath.exists():
