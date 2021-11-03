@@ -3,20 +3,11 @@ node_modules/
 package-lock.json
 
 # Ignore generated data
-site/globals/data/*
-site/hospital/*
-site/team/*
-images/team/*
-images/campaigns/*
 dist/
 css/*.css
 js/*.js
 
 !*/readme.md
 !*/.gitkeep
-!site/hospital/.gitkeep
-!site/team/index.njk
-!site/globals/data/readme.md
-!site/globals/data/instagramFeed.json
-!site/globals/data/numbers.json
+
 .secrets
